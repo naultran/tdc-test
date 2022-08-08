@@ -9,6 +9,10 @@ import sys
 
 from gdcdictionary import SCHEMA_DIR
 from dictionaryutils import dump_schemas_from_dir
+
+SCHEMA_DIR="./schemas"
+print(SCHEMA_DIR)
+
 if len(sys.argv) > 1 :
    print('hello')
    print(sys.argv[1])
