@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "slide_image"
 title: Slide Image
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: tdc_test
 category: data_file
 program: '*'
 project: '*'
@@ -40,70 +40,89 @@ links:
       required: false
 
 required:
-  - submitter_id
-  - type
+  - data_category
+  - data_format
+  - data_type
   - file_name
   - file_size
   - md5sum
-  - data_category
-  - data_type
-  - data_format
-
-uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
+  - submitter_id
+  - type
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  type:
-    enum: [ "slide_image" ]
+
+  cell_count:
+    description: >
+      Count of the cell type being imaged or otherwise analysed.
+    type: integer
+
+  cell_identifier:
+    description: >
+      An alternative identifier for a given cell type.
+    type: string
+
+  cell_type:
+    description: >
+      The type of cell being imaged or otherwised analysed.
+    type: string
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Biospecimen
-      - Slide Image
-      - Mass Cytometry
+      - "Biospecimen"
+      - "Mass Cytometry"
+      - "Slide Image"
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    type: string
+
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - image
-      - Single Cell Image
-      - Raw IMC Data
-      - Single Channel IMC Image
-      - Antibody Panel Added
-  data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    type: string 
+      - "Antibody Panel Added"
+      - "Raw IMC Data"
+      - "Single Cell Image"
+      - "Single Channel IMC Image"
+      - "image"
+
   experimental_strategy:
-    description: "Classification of the slide type with respect to its experimental use."
+    description: >
+      Classification of the slide type with respect to its experimental use.
     enum:
-      - Diagnostic Slide
-      - Tissue Slide
-  cell_type:
-    description: "The type of cell being imaged or otherwised analysed."
-    type: string
-  cell_identifier:
-    description: "An alternative identifier for a given cell type."
-    type: string
-  cell_count:
-    description: "Count of the cell type being imaged or otherwise analysed."
-    type: integer
+      - "Diagnostic Slide"
+      - "Tissue Slide"
+
   frame_identifier:
-    description: "Name, number, or other identifier given to the frame of the slide from which this image was taken."
+    description: >
+      Name, number, or other identifier given to the frame of the slide from which this image was taken.
     type: string
+
   panel_used:
-    description: "Name or other identifier given to the panel used during an IMC run."
+    description: >
+      Name or other identifier given to the panel used during an IMC run.
     type: string
+
   protocol_used:
-    description: "Name or other identifier given to the protocol used during an IMC run."
+    description: >
+      Name or other identifier given to the protocol used during an IMC run.
     type: string
+
   run_name:
-    description: "Name, number, or other identifier given to the run that generated this slide image."
+    description: >
+      Name, number, or other identifier given to the run that generated this slide image.
     type: string
-  slides:
-    $ref: "_definitions.yaml#/to_one"
+
+  type:
+    enum:
+      - "slide_image"
+
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
+
+  slides:
+    $ref: "_definitions.yaml#/to_one"

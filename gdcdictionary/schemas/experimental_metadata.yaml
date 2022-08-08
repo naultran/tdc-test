@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "experimental_metadata"
 title: Experimental Metadata
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: tdc_test
 category: metadata_file
 project: '*'
 program: '*'
@@ -40,38 +40,40 @@ links:
       required: false
 
 required:
-  - submitter_id
-  - type
+  - data_category
+  - data_format
+  - data_type
   - file_name
   - file_size
   - md5sum
-  - data_category
-  - data_type
-  - data_format
-
-uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
+  - submitter_id
+  - type
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  type:
-    enum: [ "experimental_metadata" ]
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    type:
-      - string
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum: [ "Experimental Metadata" ]
+    type: ['string']
+
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
-    type:
-      - string
-  experiments:
-    $ref: "_definitions.yaml#/to_one"
+    type: ['string']
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - "Experimental Metadata"
+
+  type:
+    enum:
+      - "experimental_metadata"
+
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
+
+  experiments:
+    $ref: "_definitions.yaml#/to_one"

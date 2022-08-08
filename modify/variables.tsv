@@ -1,0 +1,3 @@
+<node>	<field_action>	<field>	<description>	<type>	<options_action>	<options>	<required>	<terms>
+program	delete	dbgap_accession_number						
+project	delete	dbgap_accession_number						

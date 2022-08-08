@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "read_group_qc"
 title: Read Group QC
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: tdc_test
 category: notation
 project: '*'
 program: '*'
@@ -43,91 +43,114 @@ links:
     backref: read_group_qcs
 
 required:
-  - submitter_id
-  - workflow_link
-  - type
-  - percent_gc_content
-  - encoding
-  - total_sequences
-  - basic_statistics
-  - per_base_sequence_quality
-  - per_tile_sequence_quality
-  - per_sequence_quality_score
-  - per_base_sequence_content
-  - per_sequence_gc_content
-  - per_base_n_content
-  - sequence_length_distribution
-  - sequence_duplication_levels
-  - overrepresented_sequences
   - adapter_content
+  - basic_statistics
+  - encoding
   - kmer_content
+  - overrepresented_sequences
+  - per_base_n_content
+  - per_base_sequence_content
+  - per_base_sequence_quality
+  - per_sequence_gc_content
+  - per_sequence_quality_score
+  - per_tile_sequence_quality
+  - percent_gc_content
   - read_groups
-
-uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
+  - sequence_duplication_levels
+  - sequence_length_distribution
+  - submitter_id
+  - total_sequences
+  - type
+  - workflow_link
 
 properties:
   $ref: "_definitions.yaml#/workflow_properties"
-  type:
-    enum: [ "read_group_qc" ]
-  workflow_type:
+
+  adapter_content:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  basic_statistics:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  encoding:
     term:
-      $ref: "_terms.yaml#/workflow_type"
-    enum: [ "Read Group Quality Control" ]
+      $ref: "_terms.yaml#/encoding"
+    type: string
+
   fastq_name:
     term:
       $ref: "_terms.yaml#/file_name"
     type: string
+
+  kmer_content:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  overrepresented_sequences:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_base_n_content:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_base_sequence_content:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_base_sequence_quality:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_sequence_gc_content:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_sequence_quality_score:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  per_tile_sequence_quality:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
   percent_aligned:
-    description: "The percent of reads with at least one reported alignment."
+    description: >
+      The percent of reads with at least one reported alignment.
     type: integer
     minimum: 0
     maximum: 100
+
   percent_gc_content:
     term:
       $ref: "_terms.yaml#/percent_gc_content"
     type: integer
     minimum: 0
     maximum: 100
-  encoding:
-    term:
-      $ref: "_terms.yaml#/encoding"
-    type: string
+
+  sequence_duplication_levels:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
+  sequence_length_distribution:
+    $ref: "_definitions.yaml#/qc_metrics_state"
+
   total_aligned_reads:
-    description: "The total number of reads with at least one reported alignment."
+    description: >
+      The total number of reads with at least one reported alignment.
     type: integer
+
   total_sequences:
     term:
       $ref: "_terms.yaml#/total_sequences"
     type: integer
-  basic_statistics:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  per_base_sequence_quality:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  per_tile_sequence_quality:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  per_sequence_quality_score:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  per_base_sequence_content:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  per_sequence_gc_content:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  per_base_n_content:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  sequence_length_distribution:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  sequence_duplication_levels:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  overrepresented_sequences:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  adapter_content:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  kmer_content:
-    $ref: "_definitions.yaml#/qc_metrics_state"
-  submitted_aligned_reads_files:
-    $ref: "_definitions.yaml#/to_one"
-  submitted_unaligned_reads_files:
-    $ref: "_definitions.yaml#/to_many"
+
+  type:
+    enum:
+      - "read_group_qc"
+
+  workflow_type:
+    term:
+      $ref: "_terms.yaml#/workflow_type"
+    enum:
+      - "Read Group Quality Control"
+
   read_groups:
     $ref: "_definitions.yaml#/to_one"
+
+  submitted_aligned_reads_files:
+    $ref: "_definitions.yaml#/to_one"
+
+  submitted_unaligned_reads_files:
+    $ref: "_definitions.yaml#/to_many"

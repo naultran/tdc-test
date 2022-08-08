@@ -21,83 +21,80 @@ systemProperties:
   - updated_datetime
 
 required:
+  - samples
   - submitter_id
   - type
-  - samples
 
-uniqueKeys:
-  - [id]
-  - [project_id, submitter_id]
-
-links:
-  - name: samples
-    backref: aliquots
-    label: derived_from
-    multiplicity: many_to_many
-    target_type: sample
-    required: true
-
-constraints: null
-
-# Aliquot properties
 properties:
-  type:
-    type: string
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-    description: >
-      The legacy barcode used before prior to the use
-      UUIDs. For TCGA this is bcraliquotbarcode.
+
   aliquot_quantity:
     term:
       $ref: "_terms.yaml#/aliquot_quantity"
     type: number
+
   aliquot_volume:
     term:
       $ref: "_terms.yaml#/aliquot_volume"
     type: number
+
   amount:
     term:
       $ref: "_terms.yaml#/amount"
     type: number
+
   analyte_type:
     term:
       $ref: "_terms.yaml#/analyte_type"
     type: string
+
   analyte_type_id:
     term:
       $ref: "_terms.yaml#/analyte_type_id"
     enum:
-      - D
-      - E
-      - G
-      - H
-      - R
-      - S
-      - T
-      - W
-      - X
-      - Y
+      - "D"
+      - "E"
+      - "G"
+      - "H"
+      - "R"
+      - "S"
+      - "T"
+      - "W"
+      - "X"
+      - "Y"
+
   concentration:
     term:
       $ref: "_terms.yaml#/concentration"
     type: number
+
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
   project_id:
     $ref: "_definitions.yaml#/project_id"
+
   source_center:
     term:
       $ref: "_terms.yaml#/source_center"
     type: string
-  samples:
-    $ref: "_definitions.yaml#/to_one"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    description: >
+      The legacy barcode used before prior to the use UUIDs. For TCGA this is bcraliquotbarcode.
+    type: ['string', 'null']
+
+  type:
+    type: string
+
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+
+  samples:
+    $ref: "_definitions.yaml#/to_one"
