@@ -36,9 +36,6 @@ required:
 
 properties:
 
-  consent_codes:
-    type: array
-
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
 
@@ -53,11 +50,16 @@ properties:
 
   primary_site:
     description: >
-      Primary site for the case.
+      Location of the facility where the sample was collected
     type: string
 
   project_id:
     $ref: "_definitions.yaml#/project_id"
+
+  species:
+    description: >
+      Species
+    type: string
 
   state:
     $ref: "_definitions.yaml#/state"
