@@ -79,7 +79,10 @@ properties:
   age_received:
     description: "In postnatal days"
     type: string
-    
+  
+  arrival_weight:
+    description: "What did they weigh?"
+    type: string    
   cases:
     $ref: "_definitions.yaml#/to_one"
   project_id:

@@ -23,6 +23,7 @@ systemProperties:
 required:
   - submitter_id
   - type
+  - cage_id
 
 links:
   - name: cases

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "exposure"
-title: Exposure
+id: "diet"
+title: Diet
 type: object
 namespace: http://gdc.nci.nih.gov
 category: clinical
@@ -26,15 +26,11 @@ required:
 
 links:
   - name: cases
-    backref: exposures
+    backref: diet
     label: describes
     target_type: case
-    multiplicity: many_to_one
+    multiplicity: one_to_many
     required: true
-
-preferred:
-  - cigarettes_per_day
-  - years_smoked
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -43,7 +39,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "exposure" ]
+    enum: [ "diet" ]
 
   id:
     $ref: "_definitions.yaml#/UUID"
@@ -57,70 +53,21 @@ properties:
       - string
       - "null"
 
-  alcohol_history:
-    term:
-      $ref: "_terms.yaml#/alcohol_history"
-    type: string
+  feed_name:
+    type:
+      - string
 
-  alcohol_intensity:
-    term:
-      $ref: "_terms.yaml#/alcohol_intensity"
-    type: string
+  feed_description:
+    type:
+      - string    
 
-  bmi:
-    term:
-      $ref: "_terms.yaml#/bmi"
-    type: number
+  feed_source:
+    type:
+      - string
 
-  cigarettes_per_day:
-    term:
-      $ref: "_terms.yaml#/cigarettes_per_day"
-    type: number
-
-  height:
-    term:
-      $ref: "_terms.yaml#/height"
-    type: number
-
-  pack_years_smoked:
-    term:
-      $ref: "_terms.yaml#/pack_years_smoked"
-    type: number
-
-  tobacco_smoking_onset_year:
-    term:
-      $ref: "_terms.yaml#/tobacco_smoking_onset_year"
-    type: integer
-
-  tobacco_smoking_quit_year:
-    term:
-      $ref: "_terms.yaml#/tobacco_smoking_quit_year"
-    type: integer
-
-  tobacco_smoking_status:
-    term:
-      $ref: "_terms.yaml#/tobacco_smoking_status"
-    enum:
-      - "1"
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-
-  weight:
-    term:
-      $ref: "_terms.yaml#/weight"
-    type: number
-
-  years_smoked:
-    term:
-      $ref: "_terms.yaml#/years_smoked"
-    type: number
+  feed_catalog_number:
+    type:
+      - string   
 
   cases:
     $ref: "_definitions.yaml#/to_one"
