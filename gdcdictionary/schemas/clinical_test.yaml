@@ -27,12 +27,6 @@ links:
     target_type: case
     multiplicity: many_to_one
     required: true
-  - name: diagnoses
-    backref: clinical_tests
-    label: relates_to
-    target_type: diagnosis
-    multiplicity: many_to_many
-    required: false
 
 required:
   - submitter_id
