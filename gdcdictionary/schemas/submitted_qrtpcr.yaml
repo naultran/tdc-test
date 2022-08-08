@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "submitted_flow_data"
-title: Submitted flow data
+id: "submitted_expression_data"
+title: Submitted targeted expression data
 type: object
 namespace: http://gdc.nci.nih.gov
 category: data_file
@@ -26,10 +26,10 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: flow_cytometry
-      backref: submitted_aligned_reads_files # pretty ugly
+    - name: qrtpcr
+      backref: submitted_expression_data # pretty ugly
       label: data_from
-      target_type: flow_cytometry
+      target_type: qrtpcr
       multiplicity: one_to_many
       required: false
 

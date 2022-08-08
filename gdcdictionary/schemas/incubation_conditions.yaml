@@ -1,0 +1,104 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "incubation_conditions"
+title: Incubation conditions
+type: object
+namespace: http://gdc.nci.nih.gov
+category: clinical
+program: '*'
+project: '*'
+description: >
+  Housing conditions.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - submitter_id
+  - type
+  - cage_id
+
+links:
+  - name: cases
+    backref: incubation_conditions
+    label: describes
+    target_type: case
+    multiplicity: one_to_many
+    required: true
+
+
+uniqueKeys:
+  #unclear if want submitter ID for clinical
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  type:
+    enum: [ "incubation_conditions" ]
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+      - "null"
+
+  cage_id:
+    type:
+      - string
+      
+  average_vivarium_temperature:
+    description: "in celsius."
+    type:
+      - string
+     
+  average_vivarium_humidity:
+    description: "in celsius."
+    type:
+      - string
+     
+  average_vivarium_temperature:
+    description: "in celsius."
+    type:
+      - string
+     
+  vivarium_light_cycle:
+    description: ""
+    type:
+      - string
+ 
+  cage_type:
+    description: ""
+    type:
+      - string
+       
+  bedding_type:
+    description: ""
+    type:
+      - string
+       
+  water_type:
+    description: ""
+    type:
+      - string      
+
+  cases:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
