@@ -1,5 +1,5 @@
 <node>	<field_action>	<field>	<description>	<type>	<options_action>	<options>	<required>	<terms>
 case	delete	consent_codes						
 case	update	primary_site	Location of the facility where the sample was collected	string				
-case	update	disease_type						
-case	add	species	This is where species goes.	string			TRUE	species
+case	delete	disease_type						
+case	add	species	This is where species goes.	string			TRUE	

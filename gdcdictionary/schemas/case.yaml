@@ -40,11 +40,6 @@ properties:
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
 
-  disease_type:
-    description: >
-      Name of the disease for the case.
-    type: string
-
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
