@@ -1839,3 +1839,12 @@ years_smoked:
     cde_id: 3137957
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=3137957&version=1.0"
+organism:
+  description: >
+    A material entity that is an individual living system, such as animal, plant, bacteria or virus, that is capable of replicating or reproducing, growth and maintenance in the right environment. An organism may be unicellular or made up, like humans, of many billions of cells divided into specialized tissues and organs.
+  termDef:
+    term: OBI_0100026
+    source: null
+    cde_id: null
+    cde_version: null
+    term_url: "http://purl.obolibrary.org/obo/OBI_0100026"

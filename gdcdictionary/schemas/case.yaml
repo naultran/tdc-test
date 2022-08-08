@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "case"
-title: Individual
+title: Subject
 type: object
 namespace: http://gdc.nci.nih.gov
 category: administrative
@@ -33,6 +33,8 @@ required:
   - submitter_id
   - type
   - experiments
+  - organism
+  - strain
 
 uniqueKeys:
   - [id]
@@ -51,8 +53,30 @@ properties:
     type:
       - string
       - "null"
-  species:
-    description: "Location of the facility where the sample was collected."
+  organism:
+    term:
+      $ref: "_terms.yaml#/organism"
+    enum:
+      - Homo sapiens 
+      - Mus musculus
+      - Rattus norvegicus
+      - Drosophila melanogaster
+      - Danio rerio
+      - Xenopus laevis 
+  strain:
+    description: "Provide strain information associated to the source biological material."
+    type: string
+  organism supplier: 
+    description: ""
+    type: string
+  sex: 
+    description: ""
+    enum:
+      - Female
+      - Male
+      - NA
+  age_received:
+    description: "In postnatal days"
     type: string
   primary_site:
     description: "This is where species goes."
