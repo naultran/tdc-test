@@ -1,6 +1,4 @@
 <node>	<field_action>	<field>	<description>	<type>	<options_action>	<options>	<required>	<terms>
-program	delete	dbgap_accession_number						
-project	delete	dbgap_accession_number						
 case	delete	consent_codes						
 case	update	primary_site	Location of the facility where the sample was collected	string				
 case	update	disease_type						

@@ -17,9 +17,15 @@ systemProperties:
   - id
 
 required:
+  - dbgap_accession_number
   - name
 
 properties:
+
+  dbgap_accession_number:
+    description: >
+      The dbgap accession number provided for the program.
+    type: string
 
   id:
     $ref: "_definitions.yaml#/UUID"
