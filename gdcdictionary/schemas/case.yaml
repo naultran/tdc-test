@@ -34,7 +34,6 @@ required:
   - type
   - experiments
   - organism
-  - strain
 
 uniqueKeys:
   - [id]
@@ -63,21 +62,6 @@ properties:
       - Drosophila melanogaster
       - Danio rerio
       - Xenopus laevis 
-  strain:
-    description: "Provide strain information associated to the source biological material."
-    type: string
-  organism supplier: 
-    description: ""
-    type: string
-  sex: 
-    description: ""
-    enum:
-      - Female
-      - Male
-      - NA
-  age_received:
-    description: "In postnatal days"
-    type: string
   primary_site:
     description: "This is where species goes."
     type: string

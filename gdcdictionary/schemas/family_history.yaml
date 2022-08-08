@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "family_history"
-title: Family History
+id: "housing_conditions"
+title: Housing condition
 type: object
 namespace: http://gdc.nci.nih.gov
 category: clinical
 program: '*'
 project: '*'
 description: >
-  Record of a patient's background regarding cancer events of blood relatives.
+  Housing conditions.
 additionalProperties: false
 submittable: true
 validators: null
@@ -26,10 +26,10 @@ required:
 
 links:
   - name: cases
-    backref: family_histories
+    backref: housing_condition
     label: describes
     target_type: case
-    multiplicity: many_to_one
+    multiplicity: one_to_many
     required: true
 
 
@@ -40,7 +40,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "family_history" ]
+    enum: [ "housing_condition" ]
 
   id:
     $ref: "_definitions.yaml#/UUID"
@@ -54,39 +54,44 @@ properties:
       - string
       - "null"
 
-  relative_with_cancer_history:
-    term:
-      $ref: "_terms.yaml#/relative_with_cancer_history"
-    enum:
-      - "yes"
-      - "no"
-      - unknown
-      - not reported
-
-  relationship_type:
-    term:
-      $ref: "_terms.yaml#/relationship_type"
-    type: string
-
-  relationship_gender:
-    term:
-      $ref: "_terms.yaml#/gender"
-    enum:
-      - female
-      - male
-      - unknown
-      - unspecified
-      - not reported
-
-  relationship_age_at_diagnosis:
-    term:
-      $ref: "_terms.yaml#/relationship_age_at_diagnosis"
-    type: number
-
-  relationship_primary_diagnosis:
-    term:
-      $ref: "_terms.yaml#/primary_diagnosis"
-    type: string
+  cage_id:
+    type:
+      - string
+      
+  average_vivarium_temperature:
+    description: "in celsius."
+    type:
+      - string
+     
+  average_vivarium_humidity:
+    description: "in celsius."
+    type:
+      - string
+     
+  average_vivarium_temperature:
+    description: "in celsius."
+    type:
+      - string
+     
+  vivarium_light_cycle:
+    description: ""
+    type:
+      - string
+ 
+  cage_type:
+    description: ""
+    type:
+      - string
+       
+  bedding_type:
+    description: ""
+    type:
+      - string
+       
+  water_type:
+    description: ""
+    type:
+      - string      
 
   cases:
     $ref: "_definitions.yaml#/to_one"

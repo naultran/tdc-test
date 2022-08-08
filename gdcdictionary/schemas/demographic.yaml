@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "demographic"
-title: Demographic
+id: "animal_info"
+title: Animal details
 type: object
 namespace: http://gdc.nci.nih.gov
 category: clinical
@@ -23,7 +23,7 @@ systemProperties:
 
 links:
   - name: cases
-    backref: demographics
+    backref: animal_info
     label: describes
     target_type: case
     multiplicity: one_to_one
@@ -33,7 +33,8 @@ required:
   - submitter_id
   - type
   - cases
-
+  - strain
+  
 preferred:
   - year_of_death
 
@@ -57,53 +58,28 @@ properties:
     type:
       - string
       - "null"
+ 
+  strain:
+    description: "Provide strain information associated to the source biological material."
+    type: string
 
-  gender:
-    term:
-      $ref: "_terms.yaml#/gender"
+  organism supplier: 
+    description: ""
+    type: string
+
+  sex: 
+    description: ""
     enum:
       - female
       - male
       - unknown
       - unspecified
       - not reported
-
-  race:
-    term:
-      $ref: "_terms.yaml#/race"
-    enum:
-      - white
-      - american indian or alaska native
-      - black or african american
-      - asian
-      - native hawaiian or other pacific islander
-      - other
-      - Unknown
-      - not reported
-      - not allowed to collect
-
-  ethnicity:
-    term:
-      $ref: "_terms.yaml#/ethnicity"
-    enum:
-      - hispanic or latino
-      - not hispanic or latino
-      - Unknown
-      - not reported
-      - not allowed to collect
-
-  year_of_birth:
-    term:
-      $ref: "_terms.yaml#/year_of_birth"
-    type:
-      - number
-      - "null"
-
-  year_of_death:
-    term:
-      $ref: "_terms.yaml#/year_of_death"
-    type: number
-
+      
+  age_received:
+    description: "In postnatal days"
+    type: string
+    
   cases:
     $ref: "_definitions.yaml#/to_one"
   project_id:
