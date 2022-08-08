@@ -2,6 +2,6 @@
 program	delete	dbgap_accession_number						
 project	delete	dbgap_accession_number						
 case	delete	consent_codes						
-case	update	primary_site	Location of the facility where the sample was collected	string				
+case	update	primary_site	Location of the facility where the sample was collected	string	update			
 case	update	disease_type			delete			
-case	add	species	Species	string		Mus_musculus;Homo_sapiens;Rattus_norvegicus		
+case	add	species	This is where species goes.	string	add		TRUE	
