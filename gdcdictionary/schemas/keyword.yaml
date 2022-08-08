@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "keyword"
 title: Keyword
 type: object
-namespace: tdc_test
+namespace: http://gdc.nci.nih.gov
 category: administrative
 program: '*'
 project: '*'
@@ -28,39 +28,34 @@ links:
     required: true
 
 required:
-  - projects
   - submitter_id
   - type
+  - projects
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
 
 properties:
-
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-
+  type:
+    enum: [ "keyword" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-
-  keyword_name:
-    description: >
-      The name of the keyword.
-    type: string
-
-  project_id:
-    type: string
-
   state:
     $ref: "_definitions.yaml#/state"
-
   submitter_id:
-    type: ['string', 'null']
-
-  type:
-    enum:
-      - "keyword"
-
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
-
+    type:
+      - string
+      - "null"
+  keyword_name:
+    description: "The name of the keyword."
+    type: string
   projects:
     $ref: "_definitions.yaml#/to_many_project"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

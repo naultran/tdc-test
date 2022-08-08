@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "submitted_methylation"
 title: Submitted Methylation
 type: object
-namespace: tdc_test 
+namespace: https://www.bloodpac.org/ 
 category: data_file
 program: '*'
 project: '*'
@@ -39,55 +39,48 @@ links:
       required: false
 
 required:
-  - data_category
-  - data_format
-  - data_type
+  - submitter_id
+  - type
   - file_name
   - file_size
   - md5sum
-  - submitter_id
-  - type
+  - data_category
+  - data_type
+  - data_format
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-
-  assay_instrument:
-    enum:
-      - "Illumina"
-
-  assay_instrument_model:
-    enum:
-      - "Illumina Infinium HumanMethylation450"
-      - "Illumina Infinium HumanMethylation450K"
-
-  assay_method:
-    enum:
-      - "Methylation Array"
-
+  type:
+    enum: [ "submitted_methylation" ]
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - "Methylation Data"
-
+      - Methylation Data
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum: [ "Methylation Intensity Values" ]
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
     enum:
-      - "IDAT"
-
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
+      - IDAT
+  assay_method: 
     enum:
-      - "Methylation Intensity Values"
-
-  type:
+      - Methylation Array
+  assay_instrument:
     enum:
-      - "submitted_methylation"
-
+      - Illumina
+  assay_instrument_model:
+    enum:
+      - Illumina Infinium HumanMethylation450
+      - Illumina Infinium HumanMethylation450K
   aliquots:
     $ref: "_definitions.yaml#/to_one"
-
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

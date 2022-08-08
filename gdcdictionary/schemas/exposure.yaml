@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "exposure"
 title: Exposure
 type: object
-namespace: tdc_test
+namespace: http://gdc.nci.nih.gov
 category: clinical
 program: '*'
 project: '*'
@@ -24,7 +24,38 @@ required:
   - submitter_id
   - type
 
+links:
+  - name: cases
+    backref: exposures
+    label: describes
+    target_type: case
+    multiplicity: many_to_one
+    required: true
+
+preferred:
+  - cigarettes_per_day
+  - years_smoked
+
+uniqueKeys:
+  #unclear if want submitter ID for clinical
+  - [id]
+  - [project_id, submitter_id]
+
 properties:
+  type:
+    enum: [ "exposure" ]
+
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+      - "null"
 
   alcohol_history:
     term:
@@ -46,31 +77,15 @@ properties:
       $ref: "_terms.yaml#/cigarettes_per_day"
     type: number
 
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-
   height:
     term:
       $ref: "_terms.yaml#/height"
     type: number
 
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-
   pack_years_smoked:
     term:
       $ref: "_terms.yaml#/pack_years_smoked"
     type: number
-
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-
-  state:
-    $ref: "_definitions.yaml#/state"
-
-  submitter_id:
-    type: ['string', 'null']
 
   tobacco_smoking_onset_year:
     term:
@@ -93,16 +108,9 @@ properties:
       - "5"
       - "6"
       - "7"
-      - "Not Allowed To Collect"
-      - "Not Reported"
-      - "Unknown"
-
-  type:
-    enum:
-      - "exposure"
-
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+      - Unknown
+      - Not Reported
+      - Not Allowed To Collect
 
   weight:
     term:
@@ -116,3 +124,9 @@ properties:
 
   cases:
     $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

@@ -1,1 +1,2 @@
 <node>	<node_action>	<title>	<category>	<submittable>	<description>	<link_name>	<backref>	<label>	<target>	<multiplicity>	<link_required>	<link_group_required>	<group_exclusive>
+Project	update	Project	administrative	TRUE	Any specifically defined piece of work that is undertaken or attempted to meet a single requirement. (NCIt C47885)\n	programs	projects	member_of	program	many_to_one	TRUE	TRUE	TRUE

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "demographic"
 title: Demographic
 type: object
-namespace: tdc_test
+namespace: http://gdc.nci.nih.gov
 category: clinical
 program: '*'
 project: '*'
@@ -30,72 +30,74 @@ links:
     required: true
 
 required:
-  - cases
   - submitter_id
   - type
+  - cases
+
+preferred:
+  - year_of_death
+
+uniqueKeys:
+  #unclear if want submitter ID for clinical
+  - [id]
+  - [project_id, submitter_id]
 
 properties:
-
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-
-  ethnicity:
-    term:
-      $ref: "_terms.yaml#/ethnicity"
-    enum:
-      - "Unknown"
-      - "hispanic or latino"
-      - "not allowed to collect"
-      - "not hispanic or latino"
-      - "not reported"
-
-  gender:
-    term:
-      $ref: "_terms.yaml#/gender"
-    enum:
-      - "female"
-      - "male"
-      - "not reported"
-      - "unknown"
-      - "unspecified"
+  type:
+    type: string
 
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
 
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type:
+      - string
+      - "null"
+
+  gender:
+    term:
+      $ref: "_terms.yaml#/gender"
+    enum:
+      - female
+      - male
+      - unknown
+      - unspecified
+      - not reported
 
   race:
     term:
       $ref: "_terms.yaml#/race"
     enum:
-      - "Unknown"
-      - "american indian or alaska native"
-      - "asian"
-      - "black or african american"
-      - "native hawaiian or other pacific islander"
-      - "not allowed to collect"
-      - "not reported"
-      - "other"
-      - "white"
+      - white
+      - american indian or alaska native
+      - black or african american
+      - asian
+      - native hawaiian or other pacific islander
+      - other
+      - Unknown
+      - not reported
+      - not allowed to collect
 
-  state:
-    $ref: "_definitions.yaml#/state"
-
-  submitter_id:
-    type: ['string', 'null']
-
-  type:
-    type: string
-
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+  ethnicity:
+    term:
+      $ref: "_terms.yaml#/ethnicity"
+    enum:
+      - hispanic or latino
+      - not hispanic or latino
+      - Unknown
+      - not reported
+      - not allowed to collect
 
   year_of_birth:
     term:
       $ref: "_terms.yaml#/year_of_birth"
-    type: ['number', 'null']
+    type:
+      - number
+      - "null"
 
   year_of_death:
     term:
@@ -104,3 +106,9 @@ properties:
 
   cases:
     $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "family_history"
 title: Family History
 type: object
-namespace: tdc_test
+namespace: http://gdc.nci.nih.gov
 category: clinical
 program: '*'
 project: '*'
@@ -24,64 +24,75 @@ required:
   - submitter_id
   - type
 
-properties:
+links:
+  - name: cases
+    backref: family_histories
+    label: describes
+    target_type: case
+    multiplicity: many_to_one
+    required: true
 
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+uniqueKeys:
+  #unclear if want submitter ID for clinical
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  type:
+    enum: [ "family_history" ]
 
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
 
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
+  state:
+    $ref: "_definitions.yaml#/state"
 
-  relationship_age_at_diagnosis:
-    term:
-      $ref: "_terms.yaml#/relationship_age_at_diagnosis"
-    type: number
+  submitter_id:
+    type:
+      - string
+      - "null"
 
-  relationship_gender:
+  relative_with_cancer_history:
     term:
-      $ref: "_terms.yaml#/gender"
+      $ref: "_terms.yaml#/relative_with_cancer_history"
     enum:
-      - "female"
-      - "male"
-      - "not reported"
-      - "unknown"
-      - "unspecified"
-
-  relationship_primary_diagnosis:
-    term:
-      $ref: "_terms.yaml#/primary_diagnosis"
-    type: string
+      - "yes"
+      - "no"
+      - unknown
+      - not reported
 
   relationship_type:
     term:
       $ref: "_terms.yaml#/relationship_type"
     type: string
 
-  relative_with_cancer_history:
+  relationship_gender:
     term:
-      $ref: "_terms.yaml#/relative_with_cancer_history"
+      $ref: "_terms.yaml#/gender"
     enum:
-      - "no"
-      - "not reported"
-      - "unknown"
-      - "yes"
+      - female
+      - male
+      - unknown
+      - unspecified
+      - not reported
 
-  state:
-    $ref: "_definitions.yaml#/state"
+  relationship_age_at_diagnosis:
+    term:
+      $ref: "_terms.yaml#/relationship_age_at_diagnosis"
+    type: number
 
-  submitter_id:
-    type: ['string', 'null']
-
-  type:
-    enum:
-      - "family_history"
-
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+  relationship_primary_diagnosis:
+    term:
+      $ref: "_terms.yaml#/primary_diagnosis"
+    type: string
 
   cases:
     $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
