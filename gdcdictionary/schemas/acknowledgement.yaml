@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "acknowledgement"
 title: Acknowledgement 
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: tdc_test
 category: administrative
 program: '*'
 project: '*'
@@ -28,34 +28,39 @@ links:
     required: true
 
 required:
+  - projects
   - submitter_id
   - type
-  - projects
-
-uniqueKeys:
-  - [ id ]
-  - [ project_id, submitter_id ]
 
 properties:
-  type:
-    enum: [ "acknowledgement" ]
+
+  acknowledgee:
+    description: >
+      The indvidiual or group being acknowledged by the project.
+    type: string
+
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-  acknowledgee:
-    description: "The indvidiual or group being acknowledged by the project."
-    type: string
-  projects:
-    $ref: "_definitions.yaml#/to_many_project"
+
   project_id:
     type: string
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type: ['string', 'null']
+
+  type:
+    enum:
+      - "acknowledgement"
+
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+
+  projects:
+    $ref: "_definitions.yaml#/to_many_project"

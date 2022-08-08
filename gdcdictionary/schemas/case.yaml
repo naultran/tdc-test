@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "case"
 title: Case
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: tdc_test
 category: administrative
 program: '*'
 project: '*'
@@ -30,42 +30,44 @@ links:
     required: true
 
 required:
+  - experiments
+  - species
   - submitter_id
   - type
-  - experiments
 
-uniqueKeys:
-  - [id]
-  - [project_id, submitter_id]
-
-# Case properties
 properties:
-  type:
-    type: string
+
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-      - "null"
-  consent_codes:
-    type: array
-    items:
-      type: string
+
   primary_site:
-    description: "Primary site for the case."
+    description: >
+      Location of the facility where the sample was collected
     type: string
-  disease_type:
-    description: "Name of the disease for the case."
-    type: string
-  experiments: 
-    $ref: "_definitions.yaml#/to_one"
+
   project_id:
     $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
+
+  species:
+    description: >
+      This is where species goes.
+    type: string
+
+  state:
+    $ref: "_definitions.yaml#/state"
+
+  submitter_id:
+    type: ['string', 'null']
+
+  type:
+    type: string
+
   updated_datetime:
     $ref: "_definitions.yaml#/datetime"
+
+  experiments:
+    $ref: "_definitions.yaml#/to_one"
