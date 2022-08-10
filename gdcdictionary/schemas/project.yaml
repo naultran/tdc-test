@@ -53,36 +53,53 @@ properties:
     type: string
     description: "Unique identifier for the project."
   investigation_description:
-    description: "TBD"
+    description: "An overview of the project objectives and approaches"
     type: string
-  investigation_CEBS_acc_no:
-    description: "An investigation identifier that is a CEBS account number if one is available"
+
+  CEBS_acc_no:
+    term:
+      $ref: "_terms.yaml#/CEBS_acc_no"
     type: string
-  investigator_name:
-    description: "Name of the principal investigator for the project."
-    type: string
-  investigator_orcid:
-    description: "ORCID of the principal investigator for the project."
-    type: string
-  investigator_affiliation:
-    description: "The investigator's affiliation with respect to a research institution."
-    type: string
-  # Contact information
-  investigation_contact_name:
-    description: "The name of the primary contact person for the project."
-    type: string
-  investigation_contact_orcid:
-    description: "The ORCID address for the primary contact person for the project."
-    type: string
-  investigation_contact_email:
-    description: "The email address for the primary contact person for the project."
-    type: string
-  investigation_contact_phone:
-    description: "The phone number for the primary contact person for the project."
-    type: string
-  investigation_contact_address:
-    description: "The address for the primary contact person for the project."
-    type: string
+
+  data_submission_contact_name:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_name"
+
+  data_submission_contact_orcid:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_orcid" 
+      
+  data_submission_contact_email:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_email"
+  
+  data_submission_contact_telephone:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_telephone"
+    
+  data_submission_contact_department:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_department"
+
+  data_submission_contact_institution:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_institution"
+
+  data_submission_contact_institution_postal_address:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_institution_postal_address"
+
+  data_submission_contact_institution_city:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_institution_city"
+
+  data_submission_contact_state:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_state"
+      
+  data_submission_contact_zip:
+    term:
+      $ref: "_terms.yaml#/data_submission_contact_zip"      
 
   availability_type:
     description: "Is the project open or restricted?"

@@ -4,7 +4,7 @@ id: "targeted_protein_protocol"
 title: Targeted protein analysis protocol
 type: object
 namespace: https://toxdatacommons.com
-category: administrative
+category: analysis
 program: '*'
 project: '*'
 description: >

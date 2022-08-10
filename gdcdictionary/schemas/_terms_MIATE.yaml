@@ -1,5 +1,126 @@
 id: _terms
 
+CEBS_acc_no:
+  description: >
+    A CRID assigned by CEBS, the Chemical Effects in Biological Systems database 
+    maintained by the US National Toxicology Program (https://cebs.niehs.nih.gov/cebs/) 
+    which is sufficient to look up an investigation or study in CEBS
+  termDef:
+    term: CEBS acc no
+    source: DNTP
+    cde_id: MD-239
+    cde_version: 1.0
+    term_url:  
+
+data_submission_contact_zip:
+  description: >
+    zip / postal code of data submission contact
+  termDef:
+    term: data submission contact zip / postal code
+    source: DNTP
+    cde_id: MD-167
+    cde_version: 1.0
+    term_url:
+data_submission_contact_state:
+  description: >
+    state of publication contact
+  termDef:
+    term: Data submission contact state
+    source: DNTP
+    cde_id: MD-171
+    cde_version: 1.0
+    term_url:
+data_submission_contact_name:
+  description: >
+    the name of the person bearing the data submission contact representative role
+  termDef:
+    term: data submission contact name
+    source: DNTP
+    cde_id: MD-217
+    cde_version: 1.0
+    term_url:
+data_submission_contact_institution_postal_address:
+  description: >
+    postal address of data submission contact
+  termDef:
+    term: data submission contact institution postal address
+    source: DNTP
+    cde_id: MD-254
+    cde_version: 1.0
+    term_url:
+data_submission_contact_country_name:
+  description: >
+    country name of publication contact
+  termDef:
+    term: data submission contact country name
+    source: DNTP
+    cde_id: MD-255
+    cde_version: 1.0
+    term_url:
+data_submission_contact_email:
+  description: >
+    email address of data submission contact
+  termDef:
+    term: data submission contact email
+    source: DNTP
+    cde_id: MD-256
+    cde_version: 1.0
+    term_url:
+data_submission_contact_telephone:
+  description: >
+    telephone number of data submission contact
+  termDef:
+    term: data submission contact telephone
+    source: DNTP
+    cde_id: MD-257
+    cde_version: 1.0
+    term_url:
+data_submission_contact_lab:
+  description: >
+    lab name of data submission contact
+  termDef:
+    term: data submission contact lab
+    source: DNTP
+    cde_id: MD-258
+    cde_version: 1.0
+    term_url:
+data_submission_contact_department:
+  description: >
+    department of data submission contact
+  termDef:
+    term: data submission contact department
+    source: DNTP
+    cde_id: MD-259
+    cde_version: 1.0
+    term_url:
+data_submission_contact_institution:
+  description: >
+    institution of data submission contact
+  termDef:
+    term: data submission contact institution
+    source: DNTP
+    cde_id: MD-260
+    cde_version: 1.0
+    term_url:
+data_submission_contact_institution_city:
+  description: >
+    city of data submission contact
+  termDef:
+    term: data submission contact institution city
+    source: DNTP
+    cde_id: MD-261
+    cde_version: 1.0
+    term_url:
+data_submission_contact_orcid:
+  description: >
+    the ORCID of the person bearing the data submission contact representative role
+  termDef:
+    term: data submission contact ORCID
+    source: DNTP
+    cde_id: 
+    cde_version: 1.0
+    term_url:
+    
 28s_16s_ribosomal_rna_ratio:
   description: >
     The 28S/18S ribosomal RNA band ratio used to assess the quality of total RNA.
