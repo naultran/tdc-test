@@ -5,7 +5,7 @@ title: Read Group
 type: object
 description: "Sequencing reads from one lane of an NGS experiment."
 namespace: http://gdc.nci.nih.gov
-category: data_file
+category: notation
 project: '*'
 program: '*'
 additionalProperties: false
@@ -20,9 +20,9 @@ systemProperties:
   - state
 
 links:
-  - name: aliquots
+  - name: raw_reads
     label: derived_from
-    target_type: aliquot
+    target_type: raw_reads
     multiplicity: many_to_one
     required: true
     backref: read_groups

@@ -26,10 +26,10 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: read_groups
+    - name: read_alignment
       backref: submitted_aligned_reads_files # pretty ugly
       label: data_from
-      target_type: read_group
+      target_type: read_alignment
       multiplicity: one_to_many
       required: false
     - name: core_metadata_collections
