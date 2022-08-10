@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "housing_conditions"
 title: Housing condition
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: clinical
 program: '*'
 project: '*'
@@ -33,7 +33,6 @@ links:
     multiplicity: one_to_many
     required: true
 
-
 uniqueKeys:
   #unclear if want submitter ID for clinical
   - [id]
@@ -60,40 +59,31 @@ properties:
       - string
       
   average_vivarium_temperature:
-    description: "in celsius."
+    description: "Average temperature of the vivarium or water (fish) for the duration of the experiment in celsius."
     type:
-      - string
+      - number
      
   average_vivarium_humidity:
-    description: "in celsius."
+    description: "Average humidity of the vivarium for the duration of the experiment in percent."
     type:
-      - string
-     
-  average_vivarium_temperature:
-    description: "in celsius."
-    type:
-      - string
+      - number
      
   vivarium_light_cycle:
-    description: ""
+    description: "The light cycle during the experiment denoted as light:dark (e.g., 12:12)"
     type:
       - string
  
   cage_type:
-    description: ""
-    type:
-      - string
+    description: "The type of container or cage used to house the biological replicate"
+    enum:
+      - Innovive cage
+      - Optimice cage
        
   bedding_type:
-    description: ""
-    type:
-      - string
+    description: "The type of bedding used to house the biological replicate"
+    enum:
+      - ALPHA-dri (Shepherd Specialty Papers)
        
-  water_type:
-    description: ""
-    type:
-      - string      
-
   cases:
     $ref: "_definitions.yaml#/to_one"
   project_id:

@@ -3,13 +3,12 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "animal_info"
 title: Animal details
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: clinical
 program: '*'
 project: '*'
 description: >
-  Data for the characterization of the patient by means of segementing the population (e.g.,
-  characterization by age, sex, or race).
+  Data for the characterization of the individual biological replicates.
 additionalProperties: false
 submittable: true
 validators: null
@@ -34,10 +33,7 @@ required:
   - type
   - cases
   - strain
-  
-preferred:
-  - year_of_death
-
+ 
 uniqueKeys:
   #unclear if want submitter ID for clinical
   - [id]
@@ -81,8 +77,13 @@ properties:
     type: string
   
   arrival_weight:
-    description: "What did they weigh?"
-    type: string    
+    description: "Weight of the biological replicate upon designation to the project in grams"
+    type: number  
+
+  termination_method:
+    type:
+      - string
+    
   cases:
     $ref: "_definitions.yaml#/to_one"
   project_id:

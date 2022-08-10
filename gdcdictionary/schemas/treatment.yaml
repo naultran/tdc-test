@@ -24,6 +24,8 @@ systemProperties:
 required:
   - submitter_id
   - type
+  - test_article_dtxsid #ONE OR...
+  - vehicle_dtxsid #ONE OR...
 
 links:
   - name: case
@@ -64,58 +66,77 @@ properties:
     type:
       - string
 
-  substance_name:
+  test_article:
     type:
       - string
       
-  substance_identifier:
+  test_article_dtxsid:
+    description: "The test article identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
     type:
       - string
       
-  vehicle_substance:
+  vehicle_article:
     type:
       - string
-      
+
+  vehicle_article_dtxsid:
+    description: "The vehicle identifier from the CompTox Chemicals Dashboard (https://comptox.epa.gov/dashboard/)"
+    type:
+      - string
+      - "null"
+
+  test_article_administration_zt:
+    type:
+      - number    
+  
   administration_interval:
+    description: "in days"
     type:
-      - string
+      - number
       
   number_of_administrations:
     type:
-      - string
+      - number
       
   administration_route:
-    type:
-      - string                  
+    enum:
+      - oral gavage
+      - diet
+      - dough pill
+      - intraperitoneal injection      
 
   administration_volume:
     type:
-      - string
+      - number
       
   dose:
     type:
-      - string
+      - number
       
   dose_unit:
     enum:
       - milligram per kilogram
       - milligram per kilogram per day
       
-  chemical_source:
+  test_article_source:
     type:
       - string  
       
-  chemical_catalog_number:
+  test_article_catalog_number:
     type:
       - string        
 
-  chemical_lot_number:
+  test_article_lot_number:
     type:
       - string        
 
-  chemical_purity:
+  test_article_purity:
     type:
-      - string  
+      - number  
+      
+  test_article_storage_temperature:
+    type:
+      - number 
       
   cases:
     $ref: "_definitions.yaml#/to_one"

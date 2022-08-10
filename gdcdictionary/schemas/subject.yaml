@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "case"
 title: Subject
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
@@ -34,6 +34,7 @@ required:
   - type
   - experiments
   - organism
+  - experimental_setting
 
 uniqueKeys:
   - [id]
@@ -56,15 +57,19 @@ properties:
     term:
       $ref: "_terms.yaml#/organism"
     enum:
-      - Homo sapiens 
-      - Mus musculus
-      - Rattus norvegicus
-      - Drosophila melanogaster
-      - Danio rerio
-      - Xenopus laevis 
-  primary_site:
-    description: "This is where species goes."
-    type: string
+      - Homo sapiens [NCBITaxon_9606]
+      - Mus musculus [NCBITaxon_10090]
+      - Rattus norvegicus [NCBITaxon_10116]
+      - Drosophila melanogaster [NCBITaxon_7227]
+      - Danio rerio [NCBITaxon_7955]
+      - Xenopus laevis [NCBITaxon_8355]
+  experimental_setting:
+    description: "The type of bioassay performed [bao#BAO_0020005]."
+    enum:
+      - ex vivo [bao#BAO_0020006]
+      - in silico [bao#BAO_0020007]
+      - in vitro [bao#BAO_0020008]
+      - in vivo [bao#BAO_0020009]
   experiments: 
     $ref: "_definitions.yaml#/to_one"
   project_id:

@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "incubation_conditions"
 title: Incubation conditions
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: clinical
 program: '*'
 project: '*'
@@ -55,44 +55,29 @@ properties:
       - string
       - "null"
 
-  cage_id:
-    type:
+  incubator_model:
+    type: 
       - string
       
-  average_vivarium_temperature:
-    description: "in celsius."
+  incubator_temperature:
     type:
-      - string
-     
-  average_vivarium_humidity:
-    description: "in celsius."
+      - number
+  
+  incubator_co2_concentration:
     type:
-      - string
-     
-  average_vivarium_temperature:
-    description: "in celsius."
+      - number
+
+  incubator_nitrogen_concentration:
     type:
-      - string
-     
-  vivarium_light_cycle:
-    description: ""
+      - number
+      
+  incubator_oxygen_concentration:
     type:
-      - string
- 
-  cage_type:
-    description: ""
+      - number
+
+  incubator_humidity:
     type:
-      - string
-       
-  bedding_type:
-    description: ""
-    type:
-      - string
-       
-  water_type:
-    description: ""
-    type:
-      - string      
+      - number
 
   cases:
     $ref: "_definitions.yaml#/to_one"

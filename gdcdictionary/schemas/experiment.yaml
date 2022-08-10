@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "experiment"
 title: Experiment
 type: object
-namespace: http://bloodprofilingatlas.org/bpa/
+namespace: https://toxdatacommons.com
 category: administrative
 program: '*'
 project: '*'
@@ -50,6 +50,10 @@ properties:
     type:
       - string
       - "null"
+  study_design:
+    description: "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution (OBI_0500000)."
+    type: 
+      - string
   number_experimental_group:
     description: "The number denoting this experiment's place within the group within the whole."
     type:
@@ -58,46 +62,6 @@ properties:
     description: "The number of samples contained within this experimental group."
     type:
       - integer
-  experimental_description:
-    description: "A brief description of the experiment being performed."
-    type:
-      - string
-  experimental_intent:
-    description: "Summary of the goals the experiment is designed to discover."
-    type:
-      - string
-  associated_experiment:
-    description: "The submitter_id for any experiment with which this experiment is associated, paired, or matched."
-    type:
-      - string
-  type_of_sample:
-    description: "String indicator identifying the types of samples as contrived or clinical."
-    type:
-      - string
-  type_of_specimen:
-    description: "Broad description of the specimens used in the experiment."
-    type:
-      - string
-  marker_panel_description:
-    description: "Brief description of the marker panel used in this experiment."
-    type: string
-  somatic_mutations_identified:
-    description: "Are somatic mutations identified for this experiment?"
-    type: boolean
-  indels_identified:
-    description: "Are indels identified in this experiment?"
-    type: boolean
-  copy_numbers_identified:
-    description: "Are copy number variations identified in this experiment?"
-    type: boolean
-  type_of_data:
-    description: "Is the data raw or processed?"
-    enum:
-      - Raw
-      - Processed
-  data_description:
-    description: "Brief description of the data being provided for this experiment."
-    type: string
   projects:
     $ref: "_definitions.yaml#/to_one_project"
   project_id:

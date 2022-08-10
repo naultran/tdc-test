@@ -8,7 +8,7 @@ project: '*'
 category: administrative
 description: >
   Any specifically defined piece of work that is undertaken or attempted to meet a single
-  requirement. (NCIt C47885)
+  requirement. (GSSO_004441)
 additionalProperties: false
 submittable: true
 validators: null
@@ -52,26 +52,43 @@ properties:
   code:
     type: string
     description: "Unique identifier for the project."
+  investigation_description:
+    description: "TBD"
+    type: string
+  investigation_CEBS_acc_no:
+    description: "An investigation identifier that is a CEBS account number if one is available"
+    type: string
   investigator_name:
     description: "Name of the principal investigator for the project."
+    type: string
+  investigator_orcid:
+    description: "ORCID of the principal investigator for the project."
     type: string
   investigator_affiliation:
     description: "The investigator's affiliation with respect to a research institution."
     type: string
-  date_collected:
-    description: "The date or date range in which the project data was collected."
+  # Contact information
+  investigation_contact_name:
+    description: "The name of the primary contact person for the project."
     type: string
-  this_is_a_test:
-    description: "this is just a test"
+  investigation_contact_orcid:
+    description: "The ORCID address for the primary contact person for the project."
     type: string
+  investigation_contact_email:
+    description: "The email address for the primary contact person for the project."
+    type: string
+  investigation_contact_phone:
+    description: "The phone number for the primary contact person for the project."
+    type: string
+  investigation_contact_address:
+    description: "The address for the primary contact person for the project."
+    type: string
+
   availability_type:
     description: "Is the project open or restricted?"
     enum:
       - Open
       - Restricted
-  availability_mechanism:
-    description: "Mechanism by which the project will be made avilable."
-    type: string
   support_source:
     description: "The name of source providing support/grant resources."
     type: string
@@ -129,8 +146,8 @@ properties:
 
   released:
     description: |
-      To release a project is to tell the GDC to include all submitted
-      entities in the next GDC index.
+      To release a project is to tell the MSU SRC DMAC to include all submitted
+      entities in the next TDC index.
     default: false
     type: boolean
 

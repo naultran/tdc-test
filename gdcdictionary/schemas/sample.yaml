@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "sample"
 title: Sample
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: biospecimen
 program: '*'
 project: '*'
@@ -349,13 +349,16 @@ properties:
     type: integer
 
   weight_at_collection:
-    type: number
+    type: 
+      - number
+      - "not measured"
+
+  sample_volume:
+    description: "The volume of the sample in mL."
+    type: 
+      - number
+      - "not measured"
     
-  freezing_method:
-    term:
-      $ref: "_terms.yaml#/freezing_method"
-    type: string
- 
   method_of_sample_procurement:
     term:
       $ref: "_terms.yaml#/method_of_sample_procurement"
@@ -478,10 +481,6 @@ properties:
       - Unknown
       - Not Reported
       - Not Allowed To Collect
- 
-  sample_volume:
-    description: "The volume of the sample in mL."
-    type: number
 
   tissue_type:
     term:
@@ -495,6 +494,7 @@ properties:
       - Unknown
       - Not Reported
       - Not Allowed To Collect
+
   tumor_code:
     term:
       $ref: "_terms.yaml#/tumor_code"

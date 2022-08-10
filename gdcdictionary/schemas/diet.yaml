@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "diet"
 title: Diet
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: clinical
 program: '*'
 project: '*'
@@ -69,6 +69,19 @@ properties:
     type:
       - string   
 
+  feeding_method:
+    enum:
+      - ad libitum
+      - time restricted feeding
+      
+  water_type:
+    type:
+      - string
+      
+  drinking_method:
+    enum:
+      - ad libitum
+      
   cases:
     $ref: "_definitions.yaml#/to_one"
   project_id:

@@ -1,15 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "cell_details"
-title: Cell details
+id: "nucleotide_qc"
+title: Nucleotide QC
 type: object
 namespace: https://toxdatacommons.com
-category: clinical
+category: notation
 program: '*'
 project: '*'
 description: >
-  Data for the characterization of the patient by means of segementing the population (e.g.,
-  characterization by age, sex, or race).
+  Information pertaining to processed results obtained from slides; often in the form of counts.
 additionalProperties: false
 submittable: true
 validators: null
@@ -17,56 +16,51 @@ validators: null
 systemProperties:
   - id
   - project_id
-  - state
   - created_datetime
   - updated_datetime
+  - state
 
 links:
-  - name: cases
-    backref: cell_details
-    label: describes
-    target_type: case
-    multiplicity: one_to_one
+  - name: read_group
+    backref: nucleotide_qc
+    label: data_from
+    target_type: read_group
+    multiplicity: many_to_many
     required: true
 
 required:
   - submitter_id
   - type
-  - cases
-  - strain
-  
-preferred:
-  - year_of_death
+  - 28s_16s_ribosomal_rna_ratio
+  - a260_a280_ratio
 
 uniqueKeys:
-  #unclear if want submitter ID for clinical
-  - [id]
-  - [project_id, submitter_id]
+  - [ id ]
+  - [ project_id, submitter_id ]
 
 properties:
   type:
-    type: string
-
+    enum: [ "nucleotide_qc" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
-
   state:
     $ref: "_definitions.yaml#/state"
-
   submitter_id:
     type:
       - string
       - "null"
-
-  cell_type:
+  
+  28s_16s_ribosomal_rna_ratio:
     type:
-      - string    
+      - number
+  
+  a260_a280_ratio: 
+    type:
+      - number    
 
-  cases:
-    $ref: "_definitions.yaml#/to_one"
   project_id:
-    $ref: "_definitions.yaml#/project_id"
+    type: string
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
