@@ -21,10 +21,10 @@ systemProperties:
   - state
 
 links:
-  - name: read_group
+  - name: aliquot
     backref: nucleotide_qc
     label: data_from
-    target_type: read_group
+    target_type: aliquot
     multiplicity: many_to_many
     required: true
 

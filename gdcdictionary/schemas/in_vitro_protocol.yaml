@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "in_vivo_protocol"
-title: In Vivo protocol
+id: "in_vitro_protocol"
+title: In Vitro protocol
 type: object
 namespace: https://toxdatacommons.com
 category: administrative
@@ -21,20 +21,20 @@ systemProperties:
   - state
 
 links:
-  - name: incubation_condition
-    backref: in_vivo_protocol
+  - name: incubation_conditions
+    backref: in_vitro_protocol
     label: data_from
-    target_type: incubation_condition
+    target_type: incubation_conditions
     multiplicity: many_to_many
     required: true
   - name: cell_details
-    backref: in_vivo_protocol
+    backref: in_vitro_protocol
     label: data_from
     target_type: cell_details
     multiplicity: many_to_many
     required: true
   - name: treatment
-    backref: in_vivo_protocol
+    backref: in_vitro_protocol
     label: data_from
     target_type: treatment
     multiplicity: many_to_many

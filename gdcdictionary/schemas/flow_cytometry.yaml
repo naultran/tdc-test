@@ -4,7 +4,7 @@ id: "flow_cytometry"
 title: Flow cytometry
 type: object
 namespace: http://gdc.nci.nih.gov
-category: biospecimen
+category: data_file
 program: '*'
 project: '*'
 description: >

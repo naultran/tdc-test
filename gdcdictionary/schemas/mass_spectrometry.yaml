@@ -4,7 +4,7 @@ id: "mass_spectrometry"
 title: Mass_spectrometry
 type: object
 namespace: http://gdc.nci.nih.gov
-category: biospecimen
+category: data_file
 program: '*'
 project: '*'
 description: >

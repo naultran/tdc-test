@@ -4,7 +4,7 @@ id: "qrtpcr"
 title: Targeted expression analysis
 type: object
 namespace: http://gdc.nci.nih.gov
-category: biospecimen
+category: data_file
 program: '*'
 project: '*'
 description: >
