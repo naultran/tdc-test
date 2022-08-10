@@ -39,6 +39,12 @@ links:
     target_type: diet
     multiplicity: many_to_many
     required: true
+  - name: treatment
+    backref: in_vivo_protocol
+    label: data_from
+    target_type: treatment
+    multiplicity: many_to_many
+    required: true
     
 required:
   - submitter_id
@@ -61,43 +67,9 @@ properties:
       - string
       - "null"
   
-  assay_method:
-    enum:
-      - native gel
-      - SDS-PAGE gel
-      - gradient gel
-      - fixed gel
-      - Wes capillary electrophoresis
+  protocol_doi:
+    type: string
   
-  target_protein_uniprot:
-    type:
-      - string
-  
-  antibody_catalog_number:
-    type:
-      - string
-      
-  antibody_vendor:
-    type:
-      - string
-  
-  antibody_dilution:
-    type:
-      - string    
-  secondary_antibody_catalog_number:
-    type:
-      - string
-  secondary_antibody_vendor:
-    type:
-      - string
-  gel_percentage:
-    type:
-      - number
-  imaging_model:
-    enum:
-      - Vis1
-      - Vis2      
-
   project_id:
     type: string
   aliquot:

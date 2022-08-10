@@ -1,10 +1,10 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "targeted_protein_analysis"
-title: Targeted protein integration analysis
+id: "in_vivo_protocol"
+title: In Vivo protocol
 type: object
 namespace: https://toxdatacommons.com
-category: analysis
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -21,13 +21,25 @@ systemProperties:
   - state
 
 links:
-  - name: western_data
-    backref: targeted_protein_protocol
+  - name: incubation_condition
+    backref: in_vivo_protocol
     label: data_from
-    target_type: western_data
+    target_type: incubation_condition
     multiplicity: many_to_many
     required: true
-
+  - name: cell_details
+    backref: in_vivo_protocol
+    label: data_from
+    target_type: cell_details
+    multiplicity: many_to_many
+    required: true
+  - name: treatment
+    backref: in_vivo_protocol
+    label: data_from
+    target_type: treatment
+    multiplicity: many_to_many
+    required: true
+    
 required:
   - submitter_id
   - type
@@ -49,43 +61,9 @@ properties:
       - string
       - "null"
   
-  assay_method:
-    enum:
-      - native gel
-      - SDS-PAGE gel
-      - gradient gel
-      - fixed gel
-      - Wes capillary electrophoresis
+  protocol_doi:
+    type: string
   
-  target_protein_uniprot:
-    type:
-      - string
-  
-  antibody_catalog_number:
-    type:
-      - string
-      
-  antibody_vendor:
-    type:
-      - string
-  
-  antibody_dilution:
-    type:
-      - string    
-  secondary_antibody_catalog_number:
-    type:
-      - string
-  secondary_antibody_vendor:
-    type:
-      - string
-  gel_percentage:
-    type:
-      - number
-  imaging_model:
-    enum:
-      - Vis1
-      - Vis2      
-
   project_id:
     type: string
   aliquot:

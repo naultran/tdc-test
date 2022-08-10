@@ -161,6 +161,15 @@ lab_animal_vendor:
     cde_version: 1.0
     term_url:
 
+euthanasia_method:
+  description: >
+    The mechanism by which a life is ended, usually in order to relieve pain and suffering.
+  termDef:
+    term: Euthanasia Method
+    source: NCIT
+    cde_id: NCIT_C90336
+    cde_version: 1.0
+    term_url: http://purl.obolibrary.org/obo/NCIT_C90336
 
 ##
 28s_16s_ribosomal_rna_ratio:

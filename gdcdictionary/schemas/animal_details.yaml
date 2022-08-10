@@ -73,14 +73,15 @@ properties:
       - not reported
       
   age_assigned:
-    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment"
+    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment in days"
     type: number
   
   start_weight:
-    description: "Weight of the biological replicate upon designation to the project in grams"
+    description: "Weight of the biological replicate upon designation to the project in grams (g)"
     type: number  
 
-  termination_method:
+  euthanasia_method:
+    $ref: "_terms.yaml#/euthanasia_method"
     type:
       - string
     
