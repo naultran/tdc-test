@@ -131,6 +131,17 @@ data_submission_contact_orcid:
     cde_version: null
     term_url: null
 
+study_design:
+  description: >
+    A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.
+  termDef:
+    term: study design
+    source: DNTP
+    cde_id: MD-2
+    cde_version: 1.0
+    term_url:
+
+##
 a260_a280_ratio:
   description: >
     Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm,

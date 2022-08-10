@@ -64,42 +64,52 @@ properties:
   data_submission_contact_name:
     term:
       $ref: "_terms.yaml#/data_submission_contact_name"
+    type: string
 
   data_submission_contact_orcid:
     term:
       $ref: "_terms.yaml#/data_submission_contact_orcid" 
+    type: string
       
   data_submission_contact_email:
     term:
       $ref: "_terms.yaml#/data_submission_contact_email"
+    type: string
   
   data_submission_contact_telephone:
     term:
       $ref: "_terms.yaml#/data_submission_contact_telephone"
+    type: string
     
   data_submission_contact_department:
     term:
       $ref: "_terms.yaml#/data_submission_contact_department"
+    type: string
 
   data_submission_contact_institution:
     term:
       $ref: "_terms.yaml#/data_submission_contact_institution"
+    type: string
 
   data_submission_contact_institution_postal_address:
     term:
       $ref: "_terms.yaml#/data_submission_contact_institution_postal_address"
+    type: string
 
   data_submission_contact_institution_city:
     term:
       $ref: "_terms.yaml#/data_submission_contact_institution_city"
+    type: string
 
   data_submission_contact_state:
     term:
       $ref: "_terms.yaml#/data_submission_contact_state"
+    type: string
       
   data_submission_contact_zip:
     term:
       $ref: "_terms.yaml#/data_submission_contact_zip"      
+    type: string
 
   availability_type:
     description: "Is the project open or restricted?"

@@ -1,10 +1,10 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "targeted_protein_analysis"
-title: Targeted protein analysis protocol
+id: "in_vivo_protocol"
+title: In Vivo protocol
 type: object
 namespace: https://toxdatacommons.com
-category: analysis
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -21,13 +21,25 @@ systemProperties:
   - state
 
 links:
-  - name: western_data
-    backref: targeted_protein_protocol
+  - name: animal_info
+    backref: in_vivo_protocol
     label: data_from
-    target_type: western_data
+    target_type: animal_info
     multiplicity: many_to_many
     required: true
-
+  - name: housing_conditions
+    backref: in_vivo_protocol
+    label: data_from
+    target_type: housing_conditions
+    multiplicity: many_to_many
+    required: true
+  - name: diet
+    backref: in_vivo_protocol
+    label: data_from
+    target_type: diet
+    multiplicity: many_to_many
+    required: true
+    
 required:
   - submitter_id
   - type

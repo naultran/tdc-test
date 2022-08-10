@@ -59,8 +59,8 @@ properties:
     description: "Provide strain information associated to the source biological material."
     type: string
 
-  organism supplier: 
-    description: ""
+  lab_animal_vendor: 
+    $ref: "_terms.yaml#/lab_animal_vendor"
     type: string
 
   sex: 
@@ -72,11 +72,11 @@ properties:
       - unspecified
       - not reported
       
-  age_received:
-    description: "In postnatal days"
-    type: string
+  age_assigned:
+    description: "Postnal age at which the biological replicate was received from the vendor or assigned to the experiment"
+    type: number
   
-  arrival_weight:
+  start_weight:
     description: "Weight of the biological replicate upon designation to the project in grams"
     type: number  
 

@@ -121,6 +121,48 @@ data_submission_contact_orcid:
     cde_version: 1.0
     term_url:
 
+study_design:
+  description: >
+    A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.
+  termDef:
+    term: study design
+    source: DNTP
+    cde_id: MD-2
+    cde_version: 1.0
+    term_url:
+
+number_of_cohorts:
+  description: >
+    The number of groups or cohorts that are part of the study.
+  termDef:
+    term: 
+    source: DNTP
+    cde_id: 
+    cde_version: 1.0
+    term_url:
+
+strain:
+  description: >
+    An organism that is bred to have some uniform behavioral, morphological, physiological, or genetic characteristics with similarly bred organisms
+  termDef:
+    term: strain
+    source: DNTP
+    cde_id: MD-36
+    cde_version: 1.0
+    term_url:
+
+lab_animal_vendor:
+  description: >
+    A vendor which supplies the lab animal used as a subject in a study
+  termDef:
+    term: lab animal vendor
+    source: DNTP
+    cde_id: MD-53
+    cde_version: 1.0
+    term_url:
+
+
+##
 28s_16s_ribosomal_rna_ratio:
   description: >
     The 28S/18S ribosomal RNA band ratio used to assess the quality of total RNA.

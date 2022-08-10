@@ -51,15 +51,15 @@ properties:
       - string
       - "null"
   study_design:
-    description: "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution (OBI_0500000)."
+    $ref: "_terms.yaml#/study_design"
     type: 
-      - string
-  number_experimental_group:
-    description: "The number denoting this experiment's place within the group within the whole."
+      - string #Should it be enum
+  number_of_cohorts:
+    $ref: "_terms.yaml#/number_of_cohorts"
     type:
       - integer
-  number_samples_per_experimental_group:
-    description: "The number of samples contained within this experimental group."
+  number_samples_per_cohort:
+    description: "The number of samples contained within experimental groups."
     type:
       - integer
   projects:
