@@ -1,10 +1,10 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "targeted_protein_protocol"
-title: Targeted protein analysis
+title: Targeted protein analysis protocol
 type: object
 namespace: https://toxdatacommons.com
-category: notation
+category: protocol
 program: '*'
 project: '*'
 description: >
@@ -21,10 +21,10 @@ systemProperties:
   - state
 
 links:
-  - name: aliquot
-    backref: targeted_protein_notation
+  - name: western_data
+    backref: targeted_protein_protocol
     label: data_from
-    target_type: aliquot
+    target_type: western_data
     multiplicity: many_to_many
     required: true
 

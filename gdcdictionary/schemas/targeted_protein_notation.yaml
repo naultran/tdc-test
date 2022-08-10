@@ -21,10 +21,10 @@ systemProperties:
   - state
 
 links:
-  - name: aliquot
+  - name: western_data
     backref: targeted_protein_notation
     label: data_from
-    target_type: aliquot
+    target_type: western_data
     multiplicity: many_to_many
     required: true
 
