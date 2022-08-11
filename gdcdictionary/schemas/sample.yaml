@@ -34,7 +34,7 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: cases
+  - name: case
     backref: samples
     label: derived_from
     target_type: case
@@ -349,16 +349,22 @@ properties:
     type: integer
 
   weight_at_collection:
+    description: "The weight of the sample at collection in milligram (mg)"
     type: 
       - number
       - "not measured"
 
-  sample_volume:
-    description: "The volume of the sample in mL."
+  sample_collection_volume:
+    description: "The volume of the sample at collection in milliliters (mL)."
     type: 
       - number
       - "not measured"
-    
+
+  cell_count_at_collection:
+    description: "The number of cells in the collected sample" 
+    type:
+      - number    
+ 
   method_of_sample_procurement:
     term:
       $ref: "_terms.yaml#/method_of_sample_procurement"
@@ -420,132 +426,6 @@ properties:
       - Not Reported
       - Not Allowed To Collect
 
-  preservation_method:
-    term:
-      $ref: "_terms.yaml#/preservation_method"
-    enum:
-      - Cryopreserved
-      - FFPE
-      - Fresh
-      - OCT
-      - Snap Frozen
-      - Frozen
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-
-  sample_type:
-    description: "Characterization of the sample as either clinical or contrived."
-    enum:
-      - Additional Metastatic
-      - Additional - New Primary
-      - Blood Derived Cancer - Bone Marrow, Post-treatment
-      - Blood Derived Cancer - Peripheral Blood, Post-treatment
-      - Blood Derived Normal
-      - Bone Marrow Normal
-      - Buccal Cell Normal
-      - Cell Line Derived Xenograft Tissue
-      - Cell Lines
-      - cfDNA
-      - Circulating Tumor Cell (CTC)
-      - Control Analyte
-      - Clinical
-      - Contrived
-      - ctDNA
-      - DNA
-      - EBV Immortalized Normal
-      - FFPE Recurrent
-      - FFPE Scrolls
-      - Fibroblasts from Bone Marrow Normal
-      - GenomePlex (Rubicon) Amplified DNA
-      - Granulocytes
-      - Human Tumor Original Cells
-      - Metastatic
-      - Mononuclear Cells from Bone Marrow Normal
-      - Primary Blood Derived Cancer - Peripheral Blood
-      - Recurrent Blood Derived Cancer - Peripheral Blood
-      - Pleural Effusion
-      - Primary Blood Derived Cancer - Bone Marrow
-      - Primary Tumor
-      - Primary Xenograft Tissue
-      - Post neo-adjuvant therapy
-      - Recurrent Blood Derived Cancer - Bone Marrow
-      - Recurrent Tumor
-      - Repli-G (Qiagen) DNA
-      - Repli-G X (Qiagen) DNA
-      - RNA
-      - Slides
-      - Solid Tissue Normal
-      - Total RNA
-      - Xenograft Tissue
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-
-  tissue_type:
-    term:
-      $ref: "_terms.yaml#/tissue_type"
-    enum:
-      - Tumor
-      - Normal
-      - Abnormal
-      - Peritumoral
-      - Contrived
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-
-  tumor_code:
-    term:
-      $ref: "_terms.yaml#/tumor_code"
-    enum:
-      - Non cancerous tissue
-      - Diffuse Large B-Cell Lymphoma (DLBCL)
-      - Lung Cancer (all types)
-      - Lung Adenocarcinoma
-      - Non-small Cell Lung Carcinoma (NSCLC)
-      - Colon Cancer (all types)
-      - Breast Cancer (all types)
-      - Cervical Cancer (all types)
-      - Anal Cancer (all types)
-      - Acute lymphoblastic leukemia (ALL)
-      - Acute myeloid leukemia (AML)
-      - Induction Failure AML (AML-IF)
-      - Neuroblastoma (NBL)
-      - Osteosarcoma (OS)
-      - Ewing sarcoma
-      - Wilms tumor (WT)
-      - Clear cell sarcoma of the kidney (CCSK)
-      - Rhabdoid tumor (kidney) (RT)
-      - CNS, ependymoma
-      - CNS, glioblastoma (GBM)
-      - CNS, rhabdoid tumor
-      - CNS, low grade glioma (LGG)
-      - CNS, medulloblastoma
-      - CNS, other
-      - NHL, anaplastic large cell lymphoma
-      - NHL, Burkitt lymphoma (BL)
-      - Rhabdomyosarcoma
-      - Soft tissue sarcoma, non-rhabdomyosarcoma
-      - Castration-Resistant Prostate Cancer (CRPC)
-      - Prostate Cancer
-      - Hepatocellular Carcinoma (HCC)
- 
-  tumor_descriptor:
-    term:
-      $ref: "_terms.yaml#/tumor_descriptor"
-    enum:
-      - Metastatic
-      - Not Applicable
-      - Primary
-      - Recurrence
-      - Xenograft
-      - NOS
-      - Unknown
-      - Not Reported
-      - Not Allowed To Collect
-    description: "A description of the tumor from which the sample was derived." # TOREVIEW
- 
   cases:
     $ref: "_definitions.yaml#/to_one"
   project_id:

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "western_data"
-title: Targeted protein measurement
+id: "targeted_protein_data"
+title: Targeted protein data file
 type: object
 namespace: https://toxdatacommons.com
 category: data_file
@@ -41,18 +41,21 @@ properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
     enum: [ "western_data" ]
+    
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
       - Western blot
       - Capillary electrophoresis
+
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
       - Image
-      - Luminescence quantitation
+      - Wes
+
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
@@ -61,5 +64,6 @@ properties:
       - JPEG
       - PNG
       - CBZ
+
   aliquot:
     $ref: "_definitions.yaml#/to_many"

@@ -171,6 +171,96 @@ euthanasia_method:
     cde_version: 1.0
     term_url: http://purl.obolibrary.org/obo/NCIT_C90336
 
+test_article:
+  description: >
+    A substance with a defined atomic or molecular structure that results from, or takes part in, reactions involving changes in its structure, composition, or properties.
+  termDef:
+    term: test article
+    source: DNTP
+    cde_id: MD-24
+    cde_version: 1.0
+    term_url:
+
+test_article_vendor:
+  description: >
+    A vendor which supplies the test article used in a study
+  termDef:
+    term: test article vendor
+    source: DNTP
+    cde_id: MD-94
+    cde_version: 1.0
+    term_url:
+    
+test_article_vendor_catalog_number:
+  description: >
+    A CRID assigned to a test article by the test article vendor
+  termDef:
+    term: test article vendor catalog number
+    source: DNTP
+    cde_id: MD-95
+    cde_version: 1.0
+    term_url:
+    
+test_article_purity:
+  description: >
+    the purity of the test article administered to a subject in a study
+  termDef:
+    term: test article purity
+    source: DNTP
+    cde_id: MD-100
+    cde_version: 1.0
+    term_url:
+
+route:
+  description: >
+    route of administration
+  termDef:
+    term: route
+    source: DNTP
+    cde_id: MD-32
+    cde_version: 1.0
+    term_url:
+
+dose_amount:
+  description: >
+    A measurement datum that measures the quantity of something that may be administered to an organism or that an organism may be exposed to. Quantities of nutrients, drugs, vaccines and toxins are referred to as doses.
+  termDef:
+    term: dose amount
+    source: DNTP
+    cde_id: MD-25
+    cde_version: 1.0
+    term_url:
+    
+dose_amount_unit:
+  description: >
+    unit for amount administered in one dose administration
+  termDef:
+    term: dose amount unit
+    source: DNTP
+    cde_id: MD-26
+    cde_version: 1.0
+    term_url:
+
+assay:
+  description: >
+    A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies.
+  termDef:
+    term: assay
+    source: DNTP
+    cde_id: MD-99
+    cde_version: 1.0
+    term_url:
+
+target_protein_uniprot_id:
+  description: >
+    The uniprot indentifier for the protein being evaluated with the assay.
+  termDef:
+    term: target_protein_uniprot_id
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
 ##
 28s_16s_ribosomal_rna_ratio:
   description: >

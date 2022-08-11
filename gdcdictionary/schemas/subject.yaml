@@ -23,7 +23,7 @@ systemProperties:
 
 links:
   - name: experiments 
-    backref: cases
+    backref: case
     label: member_of
     target_type: experiment
     multiplicity: many_to_one

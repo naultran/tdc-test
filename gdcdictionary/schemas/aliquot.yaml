@@ -56,15 +56,19 @@ properties:
       The legacy barcode used before prior to the use
       UUIDs. For TCGA this is bcraliquotbarcode.
 
-  aliquot_quantity:
+  preservation_method:
     term:
-      $ref: "_terms.yaml#/aliquot_quantity"
-    type: number
-    
-  aliquot_volume:
-    term:
-      $ref: "_terms.yaml#/aliquot_volume"
-    type: number
+      $ref: "_terms.yaml#/preservation_method"
+    enum:
+      - Cryopreserved
+      - FFPE
+      - Fresh
+      - OCT
+      - Snap Frozen
+      - Frozen
+      - Unknown
+      - Not Reported
+      - Not Allowed To Collect
     
   amount:
     term:
@@ -74,12 +78,12 @@ properties:
   analyte_type:
     term:
       $ref: "_terms.yaml#/analyte_type"
-    type: string
-    
-  concentration:
-    term:
-      $ref: "_terms.yaml#/concentration"
-    type: number
+    enum: 
+      - DNA
+      - RNA
+      - Protein
+      - Morphology
+      - Cell suspension
     
   project_id:
     $ref: "_definitions.yaml#/project_id"
