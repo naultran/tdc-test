@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "qrtpcr"
-title: Targeted expression analysis
+title: PCR assay data file
 type: object
 namespace: http://gdc.nci.nih.gov
 category: data_file

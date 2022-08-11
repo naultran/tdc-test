@@ -27,10 +27,10 @@ links:
     target_type: aliquot
     multiplicity: many_to_many
     required: true
-  - name: aliquot
-    backref: slide_image
+  - name: slide_image
+    backref: slide_notation
     label: data_from
-    target_type: aliquot
+    target_type: slide_image
     multiplicity: many_to_many
     required: true
     
