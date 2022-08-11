@@ -49,9 +49,12 @@ properties:
       - string
       - "null"
   
-  input_file:
+  target_file:
     type: string
-  
+    
+  normalization_data:
+    type: string
+    
   software:
     enum:
       - ImageJ

@@ -261,6 +261,16 @@ target_protein_uniprot_id:
     cde_version:
     term_url:
 
+morphology:
+  description: >
+    The size or shape of subcellular structures, cells, or multicellular structures.  
+  termDef:
+    term: morphology
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+    
 ##
 28s_16s_ribosomal_rna_ratio:
   description: >
