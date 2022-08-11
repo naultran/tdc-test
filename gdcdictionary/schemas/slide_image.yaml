@@ -26,17 +26,11 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: slides
+    - name: aliquot
       backref: slide_images
       label: data_from
-      target_type: slide
+      target_type: aliquot
       multiplicity: many_to_one
-      required: false
-    - name: core_metadata_collections
-      backref: slide_images
-      label: data_from
-      target_type: core_metadata_collection
-      multiplicity: many_to_many
       required: false
 
 required:
