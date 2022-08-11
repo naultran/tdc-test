@@ -10,7 +10,7 @@ import sys
 #from gdcdictionary import SCHEMA_DIR
 from dictionaryutils import dump_schemas_from_dir
 
-SCHEMA_DIR="./schemas"
+SCHEMA_DIR="./original_schemas"
 print(SCHEMA_DIR)
 
 if len(sys.argv) > 1 :
