@@ -4,7 +4,7 @@ id: "animal_info"
 title: Animal details
 type: object
 namespace: https://toxdatacommons.com
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -21,17 +21,17 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: cases
+  - name: subject
     backref: animal_info
     label: describes
-    target_type: case
+    target_type: subject
     multiplicity: one_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - cases
+  - subject
   - strain
  
 uniqueKeys:

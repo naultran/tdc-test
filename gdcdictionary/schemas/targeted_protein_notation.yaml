@@ -36,6 +36,8 @@ links:
 required:
   - submitter_id
   - type
+  - assay
+  - antibody_vendor
 
 uniqueKeys:
   - [ id ]

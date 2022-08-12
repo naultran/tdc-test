@@ -52,8 +52,36 @@ properties:
       - "null"
   study_design:
     $ref: "_terms.yaml#/study_design"
-    type: 
-      - string #Should it be enum
+    enum:
+      - dose response design
+      - case control design
+      - cross sectional design   
+      - genetic modification design
+      - sex design
+      - time series design      
+
+  study_type:
+    enum:
+      - Teratology
+      - Short term
+      - Long term
+      - Bacterial mutagenicity
+      - Drosophila germ cell mutagenicity
+      - In vitro micronucleus
+      - In vivo alkaline comet assay
+      - Mammalian cell cytogenetics
+      - Mammalian cell mutagenicity
+      - Micronucleus
+      - Rodent cytogenetics
+      - ADME
+      - Immunotoxicology
+      - Nematode
+      - RACB
+      - Tox21 - Phase II
+      - Toxicogenomics
+      - Toxicokinetics
+      - Zebrafish
+
   number_of_cohorts:
     $ref: "_terms.yaml#/number_of_cohorts"
     type:

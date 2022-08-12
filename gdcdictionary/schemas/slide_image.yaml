@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "slide_image"
 title: Slide Image
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: data_file
 program: '*'
 project: '*'
@@ -62,12 +62,12 @@ properties:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
-      - image
+      - Image
       - Single Cell Image
       - Raw IMC Data
       - Single Channel IMC Image
       - Antibody Panel Added
-      - VS220 Scan ZIP
+      - VS220 Scan
       
   data_format:
     term:
@@ -84,8 +84,3 @@ properties:
   frame_identifier:
     description: "Name, number, or other identifier given to the frame of the slide from which this image was taken."
     type: string
-
-  slides:
-    $ref: "_definitions.yaml#/to_one"
-  core_metadata_collections:
-    $ref: "_definitions.yaml#/to_many"

@@ -1,10 +1,10 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "diet"
-title: Diet
+title: Diet details
 type: object
 namespace: https://toxdatacommons.com
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -23,12 +23,16 @@ systemProperties:
 required:
   - submitter_id
   - type
+  - feed name
+  - feeding_method
+  - water_type
+  - drinking_method
 
 links:
-  - name: cases
+  - name: subject
     backref: diet
     label: describes
-    target_type: case
+    target_type: subject
     multiplicity: one_to_many
     required: true
 
@@ -51,7 +55,11 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
+
+  start_age:
+    description: "in days"
+    type:
+      - number
 
   feed_name:
     type:

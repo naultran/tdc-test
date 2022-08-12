@@ -34,10 +34,10 @@ uniqueKeys:
   - [project_id, submitter_id]
 
 links:
-  - name: case
+  - name: subject
     backref: samples
     label: derived_from
-    target_type: case
+    target_type: subject
     multiplicity: many_to_one #not sure
     required: true
 
@@ -426,7 +426,7 @@ properties:
       - Not Reported
       - Not Allowed To Collect
 
-  cases:
+  subject:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     type: string

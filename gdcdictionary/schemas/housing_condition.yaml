@@ -1,10 +1,10 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "housing_conditions"
-title: Housing condition
+title: Housing conditions
 type: object
 namespace: https://toxdatacommons.com
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -26,10 +26,10 @@ required:
   - cage_id
 
 links:
-  - name: cases
+  - name: subject
     backref: housing_condition
     label: describes
-    target_type: case
+    target_type: subject
     multiplicity: one_to_many
     required: true
 
@@ -40,7 +40,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "housing_condition" ]
+    enum: [ "housing_conditions" ]
 
   id:
     $ref: "_definitions.yaml#/UUID"

@@ -22,25 +22,12 @@ systemProperties:
 links:
   - exclusive: true
     required: true
-    subgroup:
-      - name: submitted_aligned_reads_files
-        backref: read_group_qcs
-        label: data_from
-        target_type: submitted_aligned_reads
-        multiplicity: one_to_one
-        required: false
-      - name: submitted_unaligned_reads_files
-        backref: read_group_qcs
-        label: data_from
-        target_type: submitted_unaligned_reads
-        multiplicity: one_to_many
-        required: false
-  - name: read_groups
+  - name: raw_reads
     label: generated_from
-    target_type: read_group
+    target_type: raw_reads
     multiplicity: many_to_one
     required: true
-    backref: read_group_qcs
+    backref: read_group_qc
 
 required:
   - submitter_id

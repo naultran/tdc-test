@@ -31,7 +31,7 @@ uniqueKeys:
 
 links:
   - name: samples
-    backref: aliquots
+    backref: aliquot
     label: derived_from
     multiplicity: many_to_many
     target_type: sample
@@ -48,6 +48,7 @@ properties:
     systemAlias: node_id
   state:
     $ref: "_definitions.yaml#/state"
+    
   submitter_id:
     type:
       - string
@@ -80,17 +81,14 @@ properties:
       $ref: "_terms.yaml#/analyte_type"
     enum: 
       - DNA
-      - RNA
+      - total RNA
+      - micro RNA
       - Protein
       - Morphology
       - Cell suspension
     
   project_id:
     $ref: "_definitions.yaml#/project_id"
-  source_center:
-    term:
-      $ref: "_terms.yaml#/source_center"
-    type: string
   samples:
     $ref: "_definitions.yaml#/to_one"
   created_datetime:

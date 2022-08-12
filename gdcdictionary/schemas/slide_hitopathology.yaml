@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "slide_notation"
-title: Slide details
+id: "slide_histopathology"
+title: Histological evaluation details
 type: object
 namespace: https://toxdatacommons.com
 category: notation
@@ -37,6 +37,7 @@ links:
 required:
   - submitter_id
   - type
+  - assay
   - morphology
   - severity
 
@@ -46,7 +47,7 @@ uniqueKeys:
 
 properties:
   type:
-    enum: [ "slide_count" ]
+    enum: [ "slide_histopathology" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -57,7 +58,17 @@ properties:
       - string
       - "null"
   
-  #slide_stain
+  assay:
+    enum:
+      - H&E
+      - Picrosirius red
+      - Oil Red O
+      - Immunohistochemistry
+  
+  target_molecule:
+    type:
+      - string
+      
   morphology:
     $_ref: "_terms.yaml#/morphology"
     enum:
@@ -705,6 +716,8 @@ properties:
 
   project_id:
     type: string
+  slide_image:
+    $ref: "_definitions.yaml#/to_one"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:

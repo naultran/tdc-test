@@ -4,7 +4,7 @@ id: "treatment"
 title: Treatment
 type: object
 namespace: http://gdc.nci.nih.gov
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -28,14 +28,12 @@ required:
   - vehicle_dtxsid #ONE OR...
 
 links:
-  - name: case
+  - name: subject
     backref: treatments
     label: describes #need better term here
-    target_type: case
+    target_type: subject
     multiplicity: many_to_many
     required: true
-
-
 
 uniqueKeys:
   #unclear if want submitter ID for clinical

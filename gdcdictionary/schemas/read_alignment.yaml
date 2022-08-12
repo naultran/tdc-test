@@ -37,8 +37,9 @@ uniqueKeys:
   - [ project_id, submitter_id ]
 
 properties:
+  $ref: "_definitions.yaml#/workflow_properties"
   type:
-    enum: [ "targeted_protein_notation" ]
+    enum: [ "read_alignment" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -47,45 +48,9 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
   
-  assay_method:
-    enum:
-      - native gel
-      - SDS-PAGE gel
-      - gradient gel
-      - fixed gel
-      - Wes capillary electrophoresis
-  
-  target_protein_uniprot:
-    type:
-      - string
-  
-  antibody_catalog_number:
-    type:
-      - string
-      
-  antibody_vendor:
-    type:
-      - string
-  
-  antibody_dilution:
-    type:
-      - string    
-  secondary_antibody_catalog_number:
-    type:
-      - string
-  secondary_antibody_vendor:
-    type:
-      - string
-  gel_percentage:
-    type:
-      - number
-  imaging_model:
-    enum:
-      - Vis1
-      - Vis2      
-
+  submitted_raw_reads:
+    $_ref: "_definitions.yaml#/to_many" 
   project_id:
     type: string
   aliquot:

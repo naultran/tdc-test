@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "raw_reads"
-title: NGS unaligned reads
+id: "fastq_file"
+title: FASTQ raw read file
 type: object
 namespace: https://toxdatacommons.com
 category: data_file
@@ -22,7 +22,7 @@ systemProperties:
 
 links:
   - name: aliquot
-    backref: raw_reads
+    backref: fastq_file
     label: derived_from
     target_type: aliquot
     multiplicity: many_to_many
@@ -40,34 +40,36 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: [ "western_data" ]
+    enum: [ "fastq_file" ]
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Western blot
-      - Capillary electrophoresis
+      - NGS
+
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
-    enum:
-      - Image
-      - Luminescence quantitation
-  data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - TIFF
-      - JPEG
-      - PNG
-      - CBZ
-  read_pair:
-    description: "Identifier for unpaired or paired read sequencing"
     enum:
       - Read 1
       - Read 2
       - Index
       - single-end
+      
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - FASTQ
+
+  assay:
+    enum:
+      - WGS
+      - ChIPseq
+      - RNAseq
+      - snRNAseq
+      - scRNAseq
+      - Metagenomics
   
   aliquot:
     $ref: "_definitions.yaml#/to_many"

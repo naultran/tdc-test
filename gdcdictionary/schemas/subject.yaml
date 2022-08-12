@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "case"
+id: "subject"
 title: Subject
 type: object
 namespace: https://toxdatacommons.com
@@ -23,7 +23,7 @@ systemProperties:
 
 links:
   - name: experiments 
-    backref: case
+    backref: subject
     label: member_of
     target_type: experiment
     multiplicity: many_to_one
@@ -40,7 +40,7 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-# Case properties
+# subject properties
 properties:
   type:
     type: string
