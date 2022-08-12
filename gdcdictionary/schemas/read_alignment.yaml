@@ -40,22 +40,14 @@ properties:
   $ref: "_definitions.yaml#/workflow_properties"
   type:
     enum: [ "read_alignment" ]
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-  state:
-    $ref: "_definitions.yaml#/state"
-  submitter_id:
-    type:
-      - string
-  
-  project_id:
-    type: string
-  fastq_file:
-    $_ref: "_definitions.yaml#/to_many" 
-  aliquot:
-    $ref: "_definitions.yaml#/to_many"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+  workflow_type:
+    enum:
+      - STAR
+      - BWA-aln
+      - BWA-mem
+      - spinnaker
+      - salmon
+      - Bowtie2
+      
+  input_fastq_files:
+    $_ref: "_definitions.yaml#/to_many"
