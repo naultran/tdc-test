@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "flow_cytometry"
-title: Flow cytometry
+id: "mass_spectrometry"
+title: Mass_spectrometry data file
 type: object
 namespace: http://gdc.nci.nih.gov
 category: data_file
@@ -22,7 +22,7 @@ systemProperties:
 
 links:
   - name: aliquot
-    backref: flow_cytometry
+    backref: mass_spectrometry
     label: derived_from
     target_type: aliquot
     multiplicity: many_to_many

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "mass_spectrometry"
-title: Mass_spectrometry
+id: "mass_spectrometry_metabolomics_data_file"
+title: Mass_spectrometry metabolomics peaks data file
 type: object
 namespace: http://gdc.nci.nih.gov
 category: data_file
@@ -21,10 +21,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: aliquot
-    backref: mass_spectrometry
+  - name: mass_spectrometry_peak_integration
+    backref: mass_spectrometry_metabolomics_data_file
     label: derived_from
-    target_type: aliquot
+    target_type: mass_spectrometry_peak_integration
     multiplicity: many_to_many
     required: true
 
