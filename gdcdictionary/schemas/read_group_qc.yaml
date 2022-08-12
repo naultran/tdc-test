@@ -22,9 +22,9 @@ systemProperties:
 links:
   - exclusive: true
     required: true
-  - name: raw_reads
+  - name: fastq_file
     label: generated_from
-    target_type: raw_reads
+    target_type: fastq_file
     multiplicity: many_to_one
     required: true
     backref: read_group_qc

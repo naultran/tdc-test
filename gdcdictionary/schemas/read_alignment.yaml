@@ -21,10 +21,10 @@ systemProperties:
   - state
 
 links:
-  - name: raw_reads
+  - name: fastq_file
     backref: read_alignment
     label: data_from
-    target_type: raw_reads
+    target_type: fastq_file
     multiplicity: many_to_many
     required: true
 
@@ -49,7 +49,7 @@ properties:
     type:
       - string
   
-  submitted_raw_reads:
+  fastq_file:
     $_ref: "_definitions.yaml#/to_many" 
   project_id:
     type: string
