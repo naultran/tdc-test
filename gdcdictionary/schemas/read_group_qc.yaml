@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "read_group_qc"
-title: Read Group QC
+id: "nucleotide_qc"
+title: Nucleotide aliquot QC
 type: object
 namespace: http://gdc.nci.nih.gov
 category: notation
@@ -20,28 +20,25 @@ systemProperties:
   - state
 
 links:
-  - exclusive: true
-    required: true
-    subgroup:
-      - name: submitted_aligned_reads_files
-        backref: read_group_qcs
-        label: data_from
-        target_type: submitted_aligned_reads
-        multiplicity: one_to_one
-        required: false
-      - name: submitted_unaligned_reads_files
-        backref: read_group_qcs
-        label: data_from
-        target_type: submitted_unaligned_reads
-        multiplicity: one_to_many
-        required: false
-  - name: read_groups
+  - name: raw_reads
     label: generated_from
-    target_type: read_group
+    target_type: raw_reads
     multiplicity: many_to_one
     required: true
-    backref: read_group_qcs
-
+    backref: nucleotide_qc
+  - name: submitted_expression_data
+    label: generated_from
+    target_type: submitted_expression_data
+    multiplicity: many_to_one
+    required: true
+    backref: nucleotide_qc
+  - name: aliquot
+    label: generated_from
+    target_type: aliquot
+    multiplicity: many_to_one
+    required: true
+    backref: nucleotide_qc
+        
 required:
   - submitter_id
   - workflow_link
