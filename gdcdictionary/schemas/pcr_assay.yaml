@@ -32,6 +32,12 @@ links:
     multiplicity: many_to_one
     required: true
     backref: pcr_assay
+  - name: raw_reads
+    label: generated_from
+    target_type: raw_reads
+    multiplicity: many_to_one
+    required: true
+    backref: pcr_assay
 
 required:
   - submitter_id

@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "raw_reads"
-title: NGS unaligned reads
+id: "nucleotide_qc_data_file"
+title: Nucleotide QC data file
 type: object
 namespace: https://toxdatacommons.com
 category: data_file
@@ -21,10 +21,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: aliquot
-    backref: raw_reads
+  - name: nucleotide_qc
+    backref: nucleotide_qc_data_file
     label: derived_from
-    target_type: aliquot
+    target_type: nucleotide_qc
     multiplicity: many_to_many
     required: true
 
@@ -40,19 +40,19 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: [ "western_data" ]
+    enum: [ "nucleotide_qc_data_file" ]
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Western blot
-      - Capillary electrophoresis
+      - Bioanalyzer
+      - Gel
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
     enum:
       - Image
-      - Luminescence quantitation
+      - Trace
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
@@ -61,13 +61,6 @@ properties:
       - JPEG
       - PNG
       - CBZ
-  read_pair:
-    description: "Identifier for unpaired or paired read sequencing"
-    enum:
-      - Read 1
-      - Read 2
-      - Index
-      - single-end
   
   aliquot:
     $ref: "_definitions.yaml#/to_many"
