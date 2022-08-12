@@ -20,8 +20,6 @@ systemProperties:
   - state
 
 links:
-  - exclusive: true
-    required: true
   - name: fastq_file
     label: generated_from
     target_type: fastq_file
