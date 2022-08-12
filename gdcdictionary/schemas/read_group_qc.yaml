@@ -28,7 +28,19 @@ links:
     multiplicity: many_to_one
     required: true
     backref: read_group_qc
-
+  - name: submitted_aligned_reads
+    label: derived_from
+    target_type: submitted_aligned_reads
+    multiplicity: many_to_one
+    required: true
+    backref: read_group_qc  
+  - name: submitted_unaligned_reads
+    label: derived_from
+    target_type: submitted_unaligned_reads
+    multiplicity: many_to_one
+    required: true
+    backref: read_group_qc 
+      
 required:
   - submitter_id
   - workflow_link
