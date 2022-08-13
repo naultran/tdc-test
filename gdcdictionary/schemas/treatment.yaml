@@ -24,11 +24,11 @@ systemProperties:
 required:
   - submitter_id
   - type
-  - test_article_dtxsid #ONE OR...
-  - vehicle_dtxsid #ONE OR...
+  - test_article_dtxsid
+  - vehicle_dtxsid
 
 links:
-  - name: subject
+  - name: subjects
     backref: treatments
     label: describes #need better term here
     target_type: subject
@@ -36,7 +36,6 @@ links:
     required: true
 
 uniqueKeys:
-  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
 
@@ -56,7 +55,6 @@ properties:
       - string
       - "null"
 
-  # CHEMICAL DESCRIPTION
   test_article:
     $ref: "_terms.yaml#/test_article"
     type:
@@ -100,7 +98,6 @@ properties:
     type:
       - number 
 
-  # COMMON METADATA
   route:
     enum:
       - Administration via Cytapheresis
@@ -196,13 +193,5 @@ properties:
       - string
 
   subject:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
 
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-
-  # ======== Timestamps ========
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"

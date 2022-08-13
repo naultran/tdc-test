@@ -27,14 +27,14 @@ required:
   - feeding_method
   - water_type
   - drinking_method
-  - subject
+  - subjects
 
 links:
-  - name: subject
-    backref: diet
+  - name: subjects
+    backref: diets
     label: describes
     target_type: subject
-    multiplicity: one_to_many
+    multiplicity: many_to_many
     required: true
 
 uniqueKeys:
@@ -81,7 +81,7 @@ properties:
   feeding_method:
     enum:
       - ad libitum
-      - time restricted feeding
+      - time restricted
       
   water_type:
     type:
@@ -90,12 +90,7 @@ properties:
   drinking_method:
     enum:
       - ad libitum
+      - time restricted
       
-  subject:
-    $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+  subjects:
+    $ref: "_definitions.yaml#/to_many"

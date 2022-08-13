@@ -26,15 +26,14 @@ required:
   - cage_id
 
 links:
-  - name: subject
-    backref: housing_condition
+  - name: subjects
+    backref: housing_conditions
     label: describes
     target_type: subject
-    multiplicity: one_to_many
+    multiplicity: many_to_many
     required: true
 
 uniqueKeys:
-  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
 
@@ -52,7 +51,6 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
 
   cage_id:
     type:
@@ -84,11 +82,5 @@ properties:
     enum:
       - ALPHA-dri (Shepherd Specialty Papers)
        
-  subject:
-    $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+  subjects:
+    $ref: "_definitions.yaml#/to_many"

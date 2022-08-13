@@ -21,8 +21,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: subject
-    backref: animal_info
+  - name: subjects
+    backref: animal_infos
     label: describes
     target_type: subject
     multiplicity: one_to_one
@@ -41,7 +41,7 @@ uniqueKeys:
 
 properties:
   type:
-    type: string
+    enum: [ "animal_info" ]
 
   id:
     $ref: "_definitions.yaml#/UUID"
@@ -85,7 +85,7 @@ properties:
     type:
       - string
     
-  subject:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

@@ -23,24 +23,24 @@ systemProperties:
 required:
   - submitter_id
   - type
-  - cage_id
+  - measurement_age
+  - measurement
 
 links:
-  - name: subject
-    backref: repeated_gross_pathology
+  - name: subjects
+    backref: repeated_gross_pathologies
     label: describes
     target_type: subject
-    multiplicity: one_to_many
+    multiplicity: many_to_one
     required: true
-  - name: animal_info
-    backref: repeated_gross_pathology
+  - name: animal_infos
+    backref: repeated_gross_pathologies
     label: describes
     target_type: animal_info
-    multiplicity: one_to_many
+    multiplicity: many_to_one
     required: true
 
 uniqueKeys:
-  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
 
@@ -70,12 +70,11 @@ properties:
     enum:
       - Body weight
       - What else?      
+  measurement_value:
+    type:
+      - number
 
-  subject:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
-  project_id:
-    $ref: "_definitions.yaml#/project_id"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
+  animal_infos:
+    $ref: "_definitions.yaml#/to_one"
