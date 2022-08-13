@@ -21,15 +21,12 @@ systemProperties:
   - state
 
 links:
-  - exclusive: true
-    required: true
-    subgroup:
-    - name: fastq_file
-      backref: read_alignment
-      label: performed_on
-      target_type: fastq_file
-      multiplicity: many_to_many
-      required: false
+  - name: fastq_file
+    backref: read_alignment
+    label: performed_on
+    target_type: fastq_file
+    multiplicity: many_to_many
+    required: false
 
 required:
   - submitter_id
