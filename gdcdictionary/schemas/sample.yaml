@@ -27,7 +27,7 @@ systemProperties:
 required:
   - submitter_id
   - type
-  - cases
+  - subject
 
 uniqueKeys:
   - [id]

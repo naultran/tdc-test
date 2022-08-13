@@ -84,7 +84,7 @@ properties:
     enum:
       - ALPHA-dri (Shepherd Specialty Papers)
        
-  cases:
+  subject:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

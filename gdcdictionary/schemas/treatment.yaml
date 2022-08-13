@@ -195,7 +195,7 @@ properties:
     type:
       - string
 
-  cases:
+  subject:
     $ref: "_definitions.yaml#/to_one"
 
   project_id:

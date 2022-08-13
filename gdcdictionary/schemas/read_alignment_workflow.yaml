@@ -21,7 +21,7 @@ systemProperties:
   - state
 
 links:
-  - name: fastq_file
+  - name: input_fastq_file
     backref: read_alignment
     label: data_from
     target_type: fastq_file
@@ -40,6 +40,7 @@ properties:
   $ref: "_definitions.yaml#/workflow_properties"
   type:
     enum: [ "read_alignment" ]
+    
   workflow_type:
     enum:
       - STAR

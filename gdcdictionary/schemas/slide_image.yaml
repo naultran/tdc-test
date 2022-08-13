@@ -55,9 +55,10 @@ properties:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Biospecimen
       - Slide Image
+      - Slide Scan
       - Mass Cytometry
+
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
@@ -66,8 +67,7 @@ properties:
       - Single Cell Image
       - Raw IMC Data
       - Single Channel IMC Image
-      - Antibody Panel Added
-      - VS220 Scan
+      - Scanned Slide
       
   data_format:
     term:
@@ -80,7 +80,18 @@ properties:
 
   magnification:
     description: "Magnification of the image if not a scan"
+    type:
+      - number
     
   frame_identifier:
     description: "Name, number, or other identifier given to the frame of the slide from which this image was taken."
     type: string
+
+  aliquot:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    type: string
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

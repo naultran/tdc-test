@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "nucleotide_qc"
 title: Nucleotide aliquot QC
 type: object
-namespace: http://gdc.nci.nih.gov
+namespace: https://toxdatacommons.com
 category: notation
 project: '*'
 program: '*'
@@ -42,7 +42,7 @@ links:
 required:
   - submitter_id
   - type
-  - 28s_16s_ribosomal_rna_ratio
+  - RIN
 
 uniqueKeys:
   - [ id ]
@@ -59,8 +59,8 @@ properties:
       - Caliper
       - Gel electrophoresis
 
-  28s_16s_ribosomal_rna_ratio:
-    $ref: "_terms.yaml#/28s_16s_ribosomal_rna_ratio"
+  RIN:
+    $ref: "_terms.yaml#/RIN"
     type:
       - number
   

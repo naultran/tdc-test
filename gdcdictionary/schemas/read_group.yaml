@@ -116,10 +116,7 @@ properties:
       - Validation
       - Amplicon
       - Other
-  RIN:
-    term:
-      $ref: "_terms.yaml#/RIN"
-    type: number
+
   flow_cell_barcode:
     term:
       $ref: "_terms.yaml#/flow_cell_barcode"
