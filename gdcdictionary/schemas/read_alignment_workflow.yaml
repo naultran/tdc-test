@@ -10,7 +10,7 @@ project: '*'
 description: >
   Information pertaining to processed results obtained from slides; often in the form of counts.
 additionalProperties: false
-submittable: true
+submittable: false
 validators: null
 
 systemProperties:
@@ -29,7 +29,7 @@ links:
       label: performed_on
       target_type: fastq_file
       multiplicity: many_to_many
-      required: true
+      required: false
 
 required:
   - submitter_id

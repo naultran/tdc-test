@@ -21,13 +21,22 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: aliquot
-    backref: fastq_file
-    label: derived_from
-    target_type: aliquot
-    multiplicity: many_to_many
+  - exclusive: false
     required: true
-
+    subgroup:
+    - name: aliquot
+      backref: fastq_file
+      label: derived_from
+      target_type: aliquot
+      multiplicity: many_to_many
+      required: true
+    - name: read_alignment
+      backref: input_fastq_files
+      label: data_from
+      target_type: read_alignment
+      multiplicity: many_to_many
+      required: true
+      
 required:
   - submitter_id
   - type
