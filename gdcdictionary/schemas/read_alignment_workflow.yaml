@@ -24,7 +24,7 @@ links:
   - exclusive: true
     required: true
     subgroup:
-    - name: input_fastq_file
+    - name: fastq_file
       backref: read_alignment
       label: performed_on
       target_type: fastq_file
