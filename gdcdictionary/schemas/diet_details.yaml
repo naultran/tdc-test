@@ -27,6 +27,7 @@ required:
   - feeding_method
   - water_type
   - drinking_method
+  - subject
 
 links:
   - name: subject
@@ -90,7 +91,7 @@ properties:
     enum:
       - ad libitum
       
-  cases:
+  subject:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

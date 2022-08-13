@@ -56,11 +56,6 @@ properties:
     description: "An overview of the project objectives and approaches"
     type: string
 
-  CEBS_acc_no:
-    term:
-      $ref: "_terms.yaml#/CEBS_acc_no"
-    type: string
-
   data_submission_contact_name:
     term:
       $ref: "_terms.yaml#/data_submission_contact_name"
