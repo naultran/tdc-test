@@ -55,7 +55,7 @@ properties:
       - string
 
   cell_line:
-    description: "A cultured cell population that represents a genetically stable and homogenous population of cultured cells that shares a common propagation history (i.e. has been successively passaged together in culture)."
+    $ref: "_terms.yaml#/cell_line"
     enum:
       - primary cultured liver cell
       - Hepa 1-6 cell
@@ -63,12 +63,15 @@ properties:
       - Hep G2 cell
 
   primary_cell:
+    #$ref: "_terms.yaml#/primary_cell"
     type: boolean
 
   adherent_cell_line:
+    $ref: "_terms.yaml#/adherent_cell_line"
     type: boolean
 
   sex_a_cell_line_derived_from:
+    $ref: "_terms.yaml#/sex_a_cell_line_derived_from"
     enum:
       - Female
       - Male
@@ -76,14 +79,17 @@ properties:
       - Not applicable
 
   strain_a_cell_line_derives_from:
+    $ref: "_terms.yaml#/strain_a_cell_line_derives_from"
     type:
       - string
 
-  tissue a cell line derives from:
+  tissue_a_cell_line_derives_from:
+    $ref: "_terms.yaml#/tissue_a_cell_line_derives_from"
     type:
       - string
       
   cell_line_source:
+    $ref: "_terms.yaml#/cell_line_source"
     type:
       - string    
 

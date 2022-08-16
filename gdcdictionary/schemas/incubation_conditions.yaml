@@ -4,7 +4,7 @@ id: "incubation_conditions"
 title: Incubation conditions
 type: object
 namespace: https://toxdatacommons.com
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -26,16 +26,15 @@ required:
   - cage_id
 
 links:
-  - name: cases
+  - name: subjects
     backref: incubation_conditions
     label: describes
-    target_type: case
+    target_type: subject
     multiplicity: one_to_many
     required: true
 
 
 uniqueKeys:
-  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
 
@@ -78,8 +77,29 @@ properties:
   incubator_humidity:
     type:
       - number
+      
+  growth_medium:
+    description: "A liquid or gel containing nutrients, salts, and other factors formulated to support the growth of microorganisms, cells, or plants."
+    enum:
+      - Blood Agar Growth Medium
+      - Chromogenic Selective Medium
+      - Cycloserine-Cefoxitin Fructose Agar
+      - Dulbecco's Modified Eagle Medium
+      - Kirchner Growth Medium
+      - L-Glutamine Solution
+      - Lowenstein-Jensen Medium
+      - MB Redox Broth Growth Medium
+      - Middlebrook 7H10 Growth Medium
+      - Middlebrook 7H10S Growth Medium
+      - Middlebrook 7H11 Growth Medium
+      - Middlebrook 7H11S Growth Medium
+      - Middlebrook 7H12 Growth Medium
+      - Middlebrook 7H9 Growth Medium
+      - Ogawa Growth Medium
+      - Penicillin/Streptomycin Cell Culture Solution
+      - Roswell Park Memorial Institute 1640 Medium
 
-  cases:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"
