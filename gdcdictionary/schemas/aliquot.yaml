@@ -87,6 +87,11 @@ properties:
       - Morphology
       - Cell suspension
     
+  analyte_preparation_protocol:
+    description: "A protocols.io DOI"
+    type:
+      - string
+    
   project_id:
     $ref: "_definitions.yaml#/project_id"
   samples:

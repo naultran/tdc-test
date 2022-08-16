@@ -77,7 +77,19 @@ properties:
   feed_catalog_number:
     type:
       - string   
-
+      
+  percent_carbohydrate:
+    type:
+      - number
+      
+  percent_protein:
+    type:
+      - number    
+      
+  percent_fat:
+    type:
+      - number
+      
   feeding_method:
     enum:
       - ad libitum

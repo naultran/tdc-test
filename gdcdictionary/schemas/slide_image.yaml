@@ -31,7 +31,7 @@ links:
       label: data_from
       target_type: aliquot
       multiplicity: many_to_one
-      required: false
+      required: true
 
 required:
   - submitter_id
