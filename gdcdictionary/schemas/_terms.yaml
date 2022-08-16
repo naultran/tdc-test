@@ -241,16 +241,6 @@ dose_amount_unit:
     cde_version: 1.0
     term_url:
 
-assay:
-  description: >
-    A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies.
-  termDef:
-    term: assay
-    source: DNTP
-    cde_id: MD-99
-    cde_version: 1.0
-    term_url:
-
 target_protein_uniprot_id:
   description: >
     The uniprot indentifier for the protein being evaluated with the assay.
@@ -381,7 +371,26 @@ tissue_a_cell_line_derives_from:
     cde_version: 1.0
     term_url:
 
-
+assay:
+  description: >
+    A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies.
+  termDef:
+    term: assay
+    source: DNTP
+    cde_id: MD-99
+    cde_version: 1.0
+    term_url:
+    
+enrichment_in_cage:
+  description: >
+    description of material added to lab animal cage to reduce monotony
+  termDef:
+    term: enrichment in cage
+    source: DNTP
+    cde_id: MD-351
+    cde_version: 1.0
+    term_url:
+    
 #####
 28s_16s_ribosomal_rna_ratio:
   description: >
