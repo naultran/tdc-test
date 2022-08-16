@@ -70,6 +70,17 @@ properties:
       - in silico [bao#BAO_0020007]
       - in vitro [bao#BAO_0020008]
       - in vivo [bao#BAO_0020009]
+      
+  lab_identifier:
+    type:
+      - string
+
+  positive_control:
+    type: boolean
+    
+  negative_control:
+    type: boolean
+
   experiments: 
     $ref: "_definitions.yaml#/to_one"
   project_id:

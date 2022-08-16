@@ -4,7 +4,7 @@ id: "cell_details"
 title: Cell details
 type: object
 namespace: https://toxdatacommons.com
-category: clinical
+category: administrative
 program: '*'
 project: '*'
 description: >
@@ -22,24 +22,20 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: cases
+  - name: subjects
     backref: cell_details
     label: describes
-    target_type: case
-    multiplicity: one_to_one
+    target_type: subject
+    multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - cases
-  - strain
+  - subject
+  - cell_line
   
-preferred:
-  - year_of_death
-
 uniqueKeys:
-  #unclear if want submitter ID for clinical
   - [id]
   - [project_id, submitter_id]
 
@@ -57,13 +53,41 @@ properties:
   submitter_id:
     type:
       - string
-      - "null"
 
-  cell_type:
+  cell_line:
+    description: "A cultured cell population that represents a genetically stable and homogenous population of cultured cells that shares a common propagation history (i.e. has been successively passaged together in culture)."
+    enum:
+      - primary cultured liver cell
+      - Hepa 1-6 cell
+      - Hepa-1c1c7 cell
+      - Hep G2 cell
+
+  primary_cell:
+    type: boolean
+
+  adherent_cell_line:
+    type: boolean
+
+  sex_a_cell_line_derived_from:
+    enum:
+      - Female
+      - Male
+      - Unknown
+      - Not applicable
+
+  strain_a_cell_line_derives_from:
+    type:
+      - string
+
+  tissue a cell line derives from:
+    type:
+      - string
+      
+  cell_line_source:
     type:
       - string    
 
-  cases:
+  subjects:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"
